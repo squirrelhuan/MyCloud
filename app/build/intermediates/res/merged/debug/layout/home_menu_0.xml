@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <TableRow android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp">
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_add"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+               
+                android:src="@drawable/ic_menu_add"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_add"
+                android:layout_below="@+id/ic_menu_add"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_wallpaper"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_menu_wallpaper"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="20dp"
+                 android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_wallpaper"
+                android:layout_below="@+id/ic_menu_wallpaper"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_theme"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:onClick="onImageViewClick"
+                android:src="@drawable/ic_menu_theme"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="20dp"
+                 android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_theme"
+                android:layout_below="@+id/ic_menu_theme"/>
+        </RelativeLayout>
+        
+        <LinearLayout ></LinearLayout>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_screen_mag"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_menu_screen_mag"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="20dp"
+                 android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_screen_mag"
+                android:layout_below="@+id/ic_menu_screen_mag"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_hide_app"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:onClick="onImageViewClick"
+                android:src="@drawable/ic_menu_hide_app"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="20dp"
+                 android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_hide_app"
+                android:layout_below="@+id/ic_menu_hide_app"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_desktop"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_menu_desktop"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="20dp"
+                 android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_desktop"
+                android:layout_below="@+id/ic_menu_desktop"/>
+        </RelativeLayout>
+        
+        
+       
+    </TableRow>
+</TableLayout>
+  

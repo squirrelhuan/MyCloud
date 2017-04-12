@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+     
+      <RelativeLayout
+               xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:padding="10dp"
+                android:background="@color/white">
+
+                 <ImageView
+                     android:id="@+id/img"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="left"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/tab_settings" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:layout_toRightOf="@+id/img"
+                    android:layout_toLeftOf="@+id/ic_enter"
+                    android:layout_marginLeft="10dip"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical|left"
+                    android:text="string/change_saveDirectory"
+                    android:textSize="18sp" />
+
+                <ImageView 
+                    android:id="@+id/ic_enter"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_enter"/>
+                
+                
+                
+               </RelativeLayout>

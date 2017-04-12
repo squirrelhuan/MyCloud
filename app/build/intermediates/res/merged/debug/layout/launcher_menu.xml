@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="280dp"
+    android:orientation="vertical" >
+    
+    <ImageView android:id="@+id/pressbar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/menu_cirle"
+        android:background="#ea000000"/>
+  
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="#de000000"
+        >
+     </android.support.v4.view.ViewPager>      
+     <RelativeLayout android:layout_width="fill_parent"
+         android:layout_height="0dp"
+         android:layout_weight="2">
+     <LinearLayout android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:id="@+id/three"
+         android:orientation="horizontal"
+         android:layout_alignParentBottom="true">
+         <TextView 
+            android:id="@+id/textView1"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#ea000000"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="桌面设置"
+            android:textColor="#E5E5E5"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#ea000000"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="消息中心"
+            android:textColor="#E5E5E5" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#ea000000"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="快捷设置"
+            android:textColor="#E5E5E5"
+            />
+     </LinearLayout>
+     <ImageView 
+        android:id="@+id/cursor"
+        android:layout_width="115dp"
+        android:layout_height="50dp" 
+        android:background="#25FFFFFF"/>
+</RelativeLayout>
+</LinearLayout>

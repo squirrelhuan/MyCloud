@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <TableRow android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp">
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_add"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_flight_mode"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_add"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_wallpaper"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_gps"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_wallpaper"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_theme"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_bluetooth"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_theme"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_theme"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_screenshot"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_theme"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        
+        <LinearLayout ></LinearLayout>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_screen_mag"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_power"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_screen_mag"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_hide_app"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:clickable="true"
+                android:onClick="onImageViewClick"
+                android:src="@drawable/menu_bar_toggle_wifi"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_hide_app"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_desktop"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_vibrate"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_desktop"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_theme"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_torch"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_theme"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        
+        
+       
+    </TableRow>
+    <TableRow android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_screen_mag"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_privacy_mode"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_screen_mag"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_hide_app"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:clickable="true"
+                android:onClick="onImageViewClick"
+                android:src="@drawable/menu_bar_toggle_data"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_hide_app"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_menu_desktop"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/menu_bar_toggle_brightness_manual"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_menu_desktop"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/ic_setting_more"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:clickable="true"
+                android:onClick="onImageViewClick"
+                android:src="@drawable/menu_bar_toggle_divider"/>
+            <TextView android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                 android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#E5E5E5"
+                android:text="@string/ic_setting_more"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        
+        
+       
+    </TableRow>
+</TableLayout>
+  

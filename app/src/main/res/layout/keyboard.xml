@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:gravity="center" 
+    android:background="@drawable/rounded_editview_big">
+
+   
+        <EditText
+            android:id="@+id/keyboard_tv"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:background="@drawable/rounded_editview"
+            android:ems="10"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/blue"
+            android:maxLines="1" />
+         <Button
+                android:id="@+id/btn_input_sure"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/keyboard_select"
+                android:layout_toRightOf="@+id/keyboard_tv"
+                android:text="搜索" />
+
+
+</RelativeLayout>

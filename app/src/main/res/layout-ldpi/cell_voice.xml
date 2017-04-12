@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="135dp"
+    android:layout_height="135dp" >
+<RelativeLayout android:layout_width="135dp"
+    android:layout_height="135dp"
+    android:layout_centerInParent="true">
+        <ImageView android:id="@+id/img_popcot"
+            android:layout_width="135dp" 
+            android:layout_height="135dp"
+            android:src="@drawable/ic_video_voice"/>
+        <SeekBar android:id="@+id/voice_SeekBar" 
+        android:layout_width="135dp" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:progressDrawable="@drawable/voice_bg_bar"  
+        android:thumb="@drawable/voice_thumb_black">
+        </SeekBar>
+        <SeekBar android:id="@+id/light_SeekBar" 
+        android:layout_width="135dp" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/voice_bg_bar"  
+        android:thumb="@drawable/voice_thumb_black">
+        </SeekBar>
+        </RelativeLayout>
+</RelativeLayout>

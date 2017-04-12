@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/layout_gridItem"
+        android:layout_width="405dp"
+        android:layout_height="105dp"
+        android:background="@drawable/lm_index0" >
+
+        <!-- 图标 -->
+
+        <ImageView
+            android:id="@+id/iv_itemIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dip" />
+
+        <!-- 文字 -->
+
+        <TextView
+            android:id="@+id/tv_itemText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="5dip"
+            android:gravity="left"
+            android:textColor="@color/white" />
+
+        <!-- 活动气泡 -->
+
+        <TextView
+            android:id="@+id/tv_itemCloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="invisible" />
+
+        <!-- 删除图标 -->
+
+        <ImageView
+            android:id="@+id/iv_delItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/lm_qu"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

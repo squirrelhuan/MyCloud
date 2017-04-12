@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_setting_01">
+        <item>wlan</item>
+        <item>移动网络</item>
+        <item>蓝牙</item>
+        <item>更多</item>
+        <item>安全服务</item>
+        <item>GPS定位</item>
+        <item>账户同步</item>
+        <item>个人中心</item>
+        <item>存储</item>
+        <item>应用程序</item>
+        <item>手势体感</item>
+        <item>电量管理</item>
+        <item>日期和时间</item>
+        <item>语言和输入法</item>
+        <item>关于手机</item>
+        <item>更多</item> 
+    </string-array>
+    <string-array name="main_setting_02">
+        <item>音量</item>
+        <item>静音模式</item>
+        <item>来电铃声</item>
+        <item>信息铃声</item>
+        <item>其他通知</item>
+        <item>响铃时震动</item>
+        <item>拨号按键音</item>
+        <item>触摸提示音</item>
+        <item>锁屏提示音</item>
+        <item>开机提示音</item>
+        <item>触摸时震动</item>
+    </string-array>
+    <string-array name="main_setting_03">
+        <item>亮度</item>
+        <item>壁纸和锁屏样式</item>
+        <item>背光时间</item>
+        <item>自动旋转屏幕</item>
+        <item>电量百分比</item>
+        <item>按键背光</item>
+        <item>字体</item>
+        <item>节日壁纸</item>
+    </string-array>
+    <string-array name="menuitems">
+        <item>桌面设置</item>
+        <item>桌面设置</item>
+        <item>桌面设置</item>
+        <item>桌面设置</item>
+        <item>桌面设置</item>
+        <item>桌面设置</item>
+    </string-array>
+    <color name="Black">#00000000</color>
+    <color name="NiceButtonBorderColor">#ff254117</color>
+    <color name="NiceButtonDisabledEndColor">#ff736f6e</color>
+    <color name="NiceButtonDisabledStartColor">#ff565051</color>
+    <color name="NiceButtonEndColor">#ffe2e2e2</color>
+    <color name="NiceButtonStartColor">#ffffffff</color>
+    <color name="Red">#ffff0000</color>
+    <color name="actionbar_bg">#FF0099CC</color>
+    <color name="aliceblue">#f0f8ff</color>
+    <color name="antiquewhite">#faebd7</color>
+    <color name="aqua">#00ffff</color>
+    <color name="aquamarine">#7fffd4</color>
+    <color name="azure">#f0ffff</color>
+    <color name="beige">#f5f5dc</color>
+    <color name="bet_ball_red_color">#e76161</color>
+    <color name="bg">#FFF39200</color>
+    <color name="bg_gray">#FFE3E3E7</color>
+    <color name="big_divider">#ff83a4b4</color>
+    <color name="bisque">#ffe4c4</color>
+    <color name="black">#000000</color>
+    <color name="black2">#80000000</color>
+    <color name="blackText">#ff000000</color>
+    <color name="black_color">#000000</color>
+    <color name="blanchedalmond">#ffebcd</color>
+    <color name="blue">#0000ff</color>
+    <color name="blueButtonLabel">#ff4a9dcd</color>
+    <color name="blueviolet">#8a2be2</color>
+    <color name="brown">#a52a2a</color>
+    <color name="burlywood">#deb887</color>
+    <color name="buttom_buttom">#000000</color>
+    <color name="buttom_centre">#303030</color>
+    <color name="buttom_top">#1e1e1e</color>
+    <color name="cadetblue">#5f9ea0</color>
+    <color name="chartreuse">#7fff00</color>
+    <color name="chocolate">#d2691e</color>
+    <color name="click_color">#2b72d6</color>
+    <color name="close">#7CFC00</color>
+    <color name="coffee">#622f1b</color>
+    <color name="common_tab_color">#ff726e</color>
+    <color name="common_text_color">#94846e</color>
+    <color name="coral">#ff7f50</color>
+    <color name="cornflowerblue">#6495ed</color>
+    <color name="cornsilk">#fff8dc</color>
+    <color name="crimson">#dc143c</color>
+    <color name="cyan">#00ffff</color>
+    <color name="dark_gray">#c8000000</color>
+    <color name="darkblue">#00008b</color>
+    <color name="darkcyan">#008b8b</color>
+    <color name="darkgoldenrod">#b8860b</color>
+    <color name="darkgray">#a9a9a9</color>
+    <color name="darkgreen">#006400</color>
+    <color name="darkgrey">#a9a9a9</color>
+    <color name="darkkhaki">#bdb76b</color>
+    <color name="darkmagenta">#8b008b</color>
+    <color name="darkolivegreen">#556b2f</color>
+    <color name="darkorange">#ff8c00</color>
+    <color name="darkorchid">#9932cc</color>
+    <color name="darkred">#8b0000</color>
+    <color name="darksalmon">#e9967a</color>
+    <color name="darkseagreen">#8fbc8f</color>
+    <color name="darkslateblue">#483d8b</color>
+    <color name="darkslategray">#2f4f4f</color>
+    <color name="darkslategrey">#2f4f4f</color>
+    <color name="darkturquoise">#00ced1</color>
+    <color name="darkviolet">#9400d3</color>
+    <color name="datamanage_tab_title_text">#ff5d8298</color>
+    <color name="datamanage_tab_title_text_selected">#ff394956</color>
+    <color name="deeppink">#ff1493</color>
+    <color name="deepskyblue">#00bfff</color>
+    <color name="dimgray">#696969</color>
+    <color name="dimgrey">#696969</color>
+    <color name="dodgerblue">#1e90ff</color>
+    <color name="edit_hint_color">#e0ded7</color>
+    <color name="exam_progress">#ff5d8298</color>
+    <color name="exam_result_bad">#ff9d2c2a</color>
+    <color name="exam_result_good">#ff267724</color>
+    <color name="firebrick">#b22222</color>
+    <color name="floralwhite">#fffaf0</color>
+    <color name="forestgreen">#228b22</color>
+    <color name="fuchsia">#ff00ff</color>
+    <color name="gainsboro">#dcdcdc</color>
+    <color name="ghostwhite">#f8f8ff</color>
+    <color name="gold">#ffd700</color>
+    <color name="goldenrod">#daa520</color>
+    <color name="gray">#808080</color>
+    <color name="green">#008000</color>
+    <color name="greenyellow">#adff2f</color>
+    <color name="grey">#808080</color>
+    <color name="half_black">#7d000000</color>
+    <color name="honeydew">#f0fff0</color>
+    <color name="hotpink">#ff69b4</color>
+    <color name="incoming">#0073ff</color>
+    <color name="indianred">#cd5c5c</color>
+    <color name="indigo">#4b0082</color>
+    <color name="ivory">#fffff0</color>
+    <color name="jc_no_selected_bg_color">#ffffff</color>
+    <color name="jc_no_selected_bg_color1">#e0ffb3</color>
+    <color name="jc_no_selected_bg_color2">#fff9b3</color>
+    <color name="jc_no_selected_bg_color3">#c8ebff</color>
+    <color name="jc_no_selected_bg_color4">#ffd7bd</color>
+    <color name="jc_selected_bg_color">#b5dd96</color>
+    <color name="khaki">#f0e68c</color>
+    <color name="lavender">#e6e6fa</color>
+    <color name="lavenderblush">#fff0f5</color>
+    <color name="lawngreen">#7cfc00</color>
+    <color name="lemonchiffon">#fffacd</color>
+    <color name="light_blue">#5CACEE</color>
+    <color name="light_gray">#87CEEB</color>
+    <color name="light_grey">#EBEBEB</color>
+    <color name="light_orange">#FFFCBA00</color>
+    <color name="lightblue">#add8e6</color>
+    <color name="lightcoral">#f08080</color>
+    <color name="lightcyan">#e0ffff</color>
+    <color name="lightgoldenrodyellow">#fafad2</color>
+    <color name="lightgray">#d3d3d3</color>
+    <color name="lightgreen">#90ee90</color>
+    <color name="lightgrey">#d3d3d3</color>
+    <color name="lightorange">#FFACBA00</color>
+    <color name="lightpink">#ffb6c1</color>
+    <color name="lightsalmon">#ffa07a</color>
+    <color name="lightseagreen">#20b2aa</color>
+    <color name="lightskyblue">#87cefa</color>
+    <color name="lightslategray">#778899</color>
+    <color name="lightslategrey">#778899</color>
+    <color name="lightsteelblue">#b0c4de</color>
+    <color name="lightyellow">#ffffe0</color>
+    <color name="lime">#00ff00</color>
+    <color name="limegreen">#32cd32</color>
+    <color name="linen">#faf0e6</color>
+    <color name="list_row_color">#f6f6f6</color>
+    <color name="lowbattery">#EEEE00</color>
+    <color name="magenta">#ff00ff</color>
+    <color name="maroon">#800000</color>
+    <color name="mediumaquamarine">#66cdaa</color>
+    <color name="mediumblue">#0000cd</color>
+    <color name="mediumorchid">#ba55d3</color>
+    <color name="mediumpurple">#9370db</color>
+    <color name="mediumseagreen">#3cb371</color>
+    <color name="mediumslateblue">#7b68ee</color>
+    <color name="mediumspringgreen">#00fa9a</color>
+    <color name="mediumturquoise">#48d1cc</color>
+    <color name="mediumvioletred">#c71585</color>
+    <color name="midnightblue">#191970</color>
+    <color name="mintcream">#f5fffa</color>
+    <color name="missed">#ff2f2f</color>
+    <color name="mistyrose">#ffe4e1</color>
+    <color name="moccasin">#ffe4b5</color>
+    <color name="navajowhite">#ffdead</color>
+    <color name="navy">#000080</color>
+    <color name="nomalGray">#838B83</color>
+    <color name="notify_text_dark">#ff181818</color>
+    <color name="oldlace">#fdf5e6</color>
+    <color name="olive">#808000</color>
+    <color name="olivedrab">#6b8e23</color>
+    <color name="open">#FFFF0000</color>
+    <color name="orange">#ffa500</color>
+    <color name="orange_red">#613030</color>
+    <color name="orangered">#ff4500</color>
+    <color name="orchid">#da70d6</color>
+    <color name="outgoing">#2fb7c3</color>
+    <color name="palegoldenrod">#eee8aa</color>
+    <color name="palegreen">#98fb98</color>
+    <color name="paleturquoise">#afeeee</color>
+    <color name="palevioletred">#db7093</color>
+    <color name="papayawhip">#ffefd5</color>
+    <color name="peachpuff">#ffdab9</color>
+    <color name="peru">#cd853f</color>
+    <color name="pink">#ffc0cb</color>
+    <color name="plum">#dda0dd</color>
+    <color name="popup_bg_pressed">#ffcde1ef</color>
+    <color name="powderblue">#b0e0e6</color>
+    <color name="purple">#800080</color>
+    <color name="red">#ff0000</color>
+    <color name="rosybrown">#bc8f8f</color>
+    <color name="royalblue">#4169e1</color>
+    <color name="sSureNomal">#079B32</color>
+    <color name="sSurePressed">#959595</color>
+    <color name="saddlebrown">#8b4513</color>
+    <color name="salmon">#fa8072</color>
+    <color name="sandybrown">#f4a460</color>
+    <color name="seaShell">#fff5ee</color>
+    <color name="seagreen">#2e8b57</color>
+    <color name="sienna">#a0522d</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="skyblue">#87ceeb</color>
+    <color name="slateblue">#6a5acd</color>
+    <color name="slategray">#708090</color>
+    <color name="slategrey">#708090</color>
+    <color name="snow">#fffafa</color>
+    <color name="springgreen">#00ff7f</color>
+    <color name="statusbar_bg">#FF006080</color>
+    <color name="steelblue">#4682b4</color>
+    <color name="tab_bg">#c0ffffff</color>
+    <color name="tab_click_color">#ff524e</color>
+    <color name="tabgry">#2B2B2B</color>
+    <color name="tabxuanzhong">#D6D6D6</color>
+    <color name="tan">#d2b48c</color>
+    <color name="teal">#008080</color>
+    <color name="text_disabled">#ffb9d9e9</color>
+    <color name="thistle">#d8bfd8</color>
+    <color name="title_btn_click_color">#d10000</color>
+    <color name="title_red_color">#e8244a</color>
+    <color name="tm">#000099CC</color>
+    <color name="tomato">#ff6347</color>
+    <color name="toolbar_text_pressed">#ff394956</color>
+    <color name="tranparent">#00000000</color>
+    <color name="transparency">#00000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="transparentdarkgray">#CC292929</color>
+    <color name="transparentgray">#CC666666</color>
+    <color name="turquoise">#40e0d0</color>
+    <color name="txt">#000000</color>
+    <color name="txt_blue">#FF007CB0</color>
+    <color name="txt_gray">#FF575756</color>
+    <color name="txt_label_black">#ff2e3d47</color>
+    <color name="txt_orange">#FFEB6100</color>
+    <color name="txt_status_gray">#ff7b9cac</color>
+    <color name="uninit">#A1A1A1</color>
+    <color name="violet">#ee82ee</color>
+    <color name="wheat">#f5deb3</color>
+    <color name="white">#ffffff</color>
+    <color name="whiteBackground">#ffffffff</color>
+    <color name="whiteGray">#ffC9CACB</color>
+    <color name="white_color">#ffffff</color>
+    <color name="whitesmoke">#f5f5f5</color>
+    <color name="widgetTextColor">#ff000000</color>
+    <color name="yellow">#ffff00</color>
+    <declare-styleable name="CustomAudioIcon"><attr name="type">
+            <enum name="start" value="0"/>            
+            <enum name="forward" value="1"/>
+            <enum name="backward" value="2"/>
+            <enum name="exit" value="3"/>
+            <enum name="mode" value="4"/>
+        </attr><attr format="color" name="color"/></declare-styleable>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="CB1">馒头</string>
+    <string name="CB2">面条</string>
+    <string name="CB3">米饭</string>
+    <string name="CB4">汉堡</string>
+    <string name="action_settings">Settings</string>
+    <string name="app">通话记录</string>
+    <string name="app_name">MyCloud</string>
+    <string name="asc">升序</string>
+    <string name="baidu">百度</string>
+    <string name="btn1">111</string>
+    <string name="btn2">222</string>
+    <string name="button">发送</string>
+    <string name="change">更改</string>
+    <string name="change_saveDirectory">更改存储路径</string>
+    <string name="choose_search_engine">选择搜索引擎</string>
+    <string name="clear_data">清空记录</string>
+    <string name="color_example">Color Example</string>
+    <string name="contact_number">请输联系人</string>
+    <string name="content">请输入内容</string>
+    <string name="default_example">Default Example</string>
+    <string name="delete">删除</string>
+    <string name="desc">降序</string>
+    <string name="display_download_percentage">显示下载进度百分比</string>
+    <string name="download_style">下载样式</string>
+    <string name="google">谷歌</string>
+    <string name="hello">请输入联系人</string>
+    <string name="hello_c">请输入手机号码：</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="history">历史</string>
+    <string name="ic_menu_add">添加</string>
+    <string name="ic_menu_desktop">桌面设置</string>
+    <string name="ic_menu_hide_app">屏幕助手</string>
+    <string name="ic_menu_screen_mag">屏幕管理</string>
+    <string name="ic_menu_theme">主题</string>
+    <string name="ic_menu_wallpaper">壁纸</string>
+    <string name="ic_setting_more">系统设置</string>
+    <string name="inputmobile">请输入手机号</string>
+    <string name="ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ligula sapien, fermentum vitae aliquam sed, lacinia in nibh. Pellentesque euismod diam eget justo interdum, sit amet elementum ipsum vulputate. Aliquam sed purus urna. Vivamus luctus nisi sem, a fringilla velit iaculis id. Donec nec vulputate justo. Fusce vulputate sodales tellus, in fringilla ante posuere non. Vivamus vulputate nisl non augue dignissim, consectetur rutrum risus facilisis. Sed consectetur aliquam dolor, sed pulvinar mi tristique vitae. Donec quis ligula quis velit consequat dictum id eu felis. Mauris ac congue ante, sed elementum eros.\n\nSed eu euismod dolor, a vestibulum lorem. Phasellus euismod volutpat risus sit amet pellentesque. Integer sit amet nisl malesuada, posuere orci sodales, euismod metus. Suspendisse potenti. Nullam mollis tristique accumsan. Vestibulum sit amet dictum nisl. Sed rhoncus lacus purus, vitae scelerisque urna venenatis at.\n\nUt ornare sapien sed condimentum varius. Nulla ut varius nibh. Nam consequat ligula sem, interdum hendrerit diam commodo sed. Vestibulum imperdiet mauris quis mauris vestibulum lobortis. Nunc bibendum, nunc ut porttitor tristique, turpis mauris cursus magna, ac molestie risus hendrerit odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pulvinar odio vestibulum ligula mollis, vel venenatis orci semper. Duis consectetur molestie justo, ut pulvinar nisi semper vel. Cras quis fringilla augue, ut vehicula turpis. Praesent nec imperdiet dui. Morbi quis pharetra lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed luctus mauris vitae augue rhoncus, vel interdum nisl pellentesque. In tempor, mi et vestibulum condimentum, nisl mauris cursus diam, aliquet vestibulum risus erat sit amet diam.\n\nInteger suscipit eros at diam tempor, ac condimentum turpis pharetra. Vestibulum pharetra risus in lacus semper, at bibendum ligula condimentum. Proin sed massa eget risus malesuada dignissim et in ipsum. Donec convallis tellus vel lectus lobortis, non lobortis libero faucibus. Sed nec posuere mi. Pellentesque sed sem sit amet erat lobortis commodo nec ut nisl. Pellentesque rhoncus risus id massa accumsan, hendrerit posuere mauris pulvinar.\n\nNullam risus felis, dictum et varius eget, rutrum non nunc. Vestibulum lorem nulla, porttitor ac sapien interdum, porta tristique turpis. Quisque ut dui vitae urna congue scelerisque. Nulla eu commodo felis. Nulla aliquam magna a arcu elementum, vitae tincidunt risus semper. Sed consectetur diam vel magna mattis, sed congue nisi fringilla. Ut in facilisis elit. Etiam aliquet orci urna. Nam interdum nunc fringilla iaculis cursus.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ligula sapien, fermentum vitae aliquam sed, lacinia in nibh. Pellentesque euismod diam eget justo interdum, sit amet elementum ipsum vulputate. Aliquam sed purus urna. Vivamus luctus nisi sem, a fringilla velit iaculis id. Donec nec vulputate justo. Fusce vulputate sodales tellus, in fringilla ante posuere non. Vivamus vulputate nisl non augue dignissim, consectetur rutrum risus facilisis. Sed consectetur aliquam dolor, sed pulvinar mi tristique vitae. Donec quis ligula quis velit consequat dictum id eu felis. Mauris ac congue ante, sed elementum eros.\n\nSed eu euismod dolor, a vestibulum lorem. Phasellus euismod volutpat risus sit amet pellentesque. Integer sit amet nisl malesuada, posuere orci sodales, euismod metus. Suspendisse potenti. Nullam mollis tristique accumsan. Vestibulum sit amet dictum nisl. Sed rhoncus lacus purus, vitae scelerisque urna venenatis at.\n\nUt ornare sapien sed condimentum varius. Nulla ut varius nibh. Nam consequat ligula sem, interdum hendrerit diam commodo sed. Vestibulum imperdiet mauris quis mauris vestibulum lobortis. Nunc bibendum, nunc ut porttitor tristique, turpis mauris cursus magna, ac molestie risus hendrerit odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pulvinar odio vestibulum ligula mollis, vel venenatis orci semper. Duis consectetur molestie justo, ut pulvinar nisi semper vel. Cras quis fringilla augue, ut vehicula turpis. Praesent nec imperdiet dui. Morbi quis pharetra lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed luctus mauris vitae augue rhoncus, vel interdum nisl pellentesque. In tempor, mi et vestibulum condimentum, nisl mauris cursus diam, aliquet vestibulum risus erat sit amet diam.\n\nInteger suscipit eros at diam tempor, ac condimentum turpis pharetra. Vestibulum pharetra risus in lacus semper, at bibendum ligula condimentum. Proin sed massa eget risus malesuada dignissim et in ipsum. Donec convallis tellus vel lectus lobortis, non lobortis libero faucibus. Sed nec posuere mi. Pellentesque sed sem sit amet erat lobortis commodo nec ut nisl. Pellentesque rhoncus risus id massa accumsan, hendrerit posuere mauris pulvinar.\n\nNullam risus felis, dictum et varius eget, rutrum non nunc. Vestibulum lorem nulla, porttitor ac sapien interdum, porta tristique turpis. Quisque ut dui vitae urna congue scelerisque. Nulla eu commodo felis. Nulla aliquam magna a arcu elementum, vitae tincidunt risus semper. Sed consectetur diam vel magna mattis, sed congue nisi fringilla. Ut in facilisis elit. Etiam aliquet orci urna. Nam interdum nunc fringilla iaculis cursus.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ligula sapien, fermentum vitae aliquam sed, lacinia in nibh. Pellentesque euismod diam eget justo interdum, sit amet elementum ipsum vulputate. Aliquam sed purus urna. Vivamus luctus nisi sem, a fringilla velit iaculis id. Donec nec vulputate justo. Fusce vulputate sodales tellus, in fringilla ante posuere non. Vivamus vulputate nisl non augue dignissim, consectetur rutrum risus facilisis. Sed consectetur aliquam dolor, sed pulvinar mi tristique vitae. Donec quis ligula quis velit consequat dictum id eu felis. Mauris ac congue ante, sed elementum eros.\n\nSed eu euismod dolor, a vestibulum lorem. Phasellus euismod volutpat risus sit amet pellentesque. Integer sit amet nisl malesuada, posuere orci sodales, euismod metus. Suspendisse potenti. Nullam mollis tristique accumsan. Vestibulum sit amet dictum nisl. Sed rhoncus lacus purus, vitae scelerisque urna venenatis at.\n\nUt ornare sapien sed condimentum varius. Nulla ut varius nibh. Nam consequat ligula sem, interdum hendrerit diam commodo sed. Vestibulum imperdiet mauris quis mauris vestibulum lobortis. Nunc bibendum, nunc ut porttitor tristique, turpis mauris cursus magna, ac molestie risus hendrerit odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pulvinar odio vestibulum ligula mollis, vel venenatis orci semper. Duis consectetur molestie justo, ut pulvinar nisi semper vel. Cras quis fringilla augue, ut vehicula turpis. Praesent nec imperdiet dui. Morbi quis pharetra lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed luctus mauris vitae augue rhoncus, vel interdum nisl pellentesque. In tempor, mi et vestibulum condimentum, nisl mauris cursus diam, aliquet vestibulum risus erat sit amet diam.\n\nInteger suscipit eros at diam tempor, ac condimentum turpis pharetra. Vestibulum pharetra risus in lacus semper, at bibendum ligula condimentum. Proin sed massa eget risus malesuada dignissim et in ipsum. Donec convallis tellus vel lectus lobortis, non lobortis libero faucibus. Sed nec posuere mi. Pellentesque sed sem sit amet erat lobortis commodo nec ut nisl. Pellentesque rhoncus risus id massa accumsan, hendrerit posuere mauris pulvinar.\n\nNullam risus felis, dictum et varius eget, rutrum non nunc. Vestibulum lorem nulla, porttitor ac sapien interdum, porta tristique turpis. Quisque ut dui vitae urna congue scelerisque. Nulla eu commodo felis. Nulla aliquam magna a arcu elementum, vitae tincidunt risus semper. Sed consectetur diam vel magna mattis, sed congue nisi fringilla. Ut in facilisis elit. Etiam aliquet orci urna. Nam interdum nunc fringilla iaculis cursus.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ligula sapien, fermentum vitae aliquam sed, lacinia in nibh. Pellentesque euismod diam eget justo interdum, sit amet elementum ipsum vulputate. Aliquam sed purus urna. Vivamus luctus nisi sem, a fringilla velit iaculis id. Donec nec vulputate justo. Fusce vulputate sodales tellus, in fringilla ante posuere non. Vivamus vulputate nisl non augue dignissim, consectetur rutrum risus facilisis. Sed consectetur aliquam dolor, sed pulvinar mi tristique vitae. Donec quis ligula quis velit consequat dictum id eu felis. Mauris ac congue ante, sed elementum eros.\n\nSed eu euismod dolor, a vestibulum lorem. Phasellus euismod volutpat risus sit amet pellentesque. Integer sit amet nisl malesuada, posuere orci sodales, euismod metus. Suspendisse potenti. Nullam mollis tristique accumsan. Vestibulum sit amet dictum nisl. Sed rhoncus lacus purus, vitae scelerisque urna venenatis at.\n\nUt ornare sapien sed condimentum varius. Nulla ut varius nibh. Nam consequat ligula sem, interdum hendrerit diam commodo sed. Vestibulum imperdiet mauris quis mauris vestibulum lobortis. Nunc bibendum, nunc ut porttitor tristique, turpis mauris cursus magna, ac molestie risus hendrerit odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pulvinar odio vestibulum ligula mollis, vel venenatis orci semper. Duis consectetur molestie justo, ut pulvinar nisi semper vel. Cras quis fringilla augue, ut vehicula turpis. Praesent nec imperdiet dui. Morbi quis pharetra lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed luctus mauris vitae augue rhoncus, vel interdum nisl pellentesque. In tempor, mi et vestibulum condimentum, nisl mauris cursus diam, aliquet vestibulum risus erat sit amet diam.\n\nInteger suscipit eros at diam tempor, ac condimentum turpis pharetra. Vestibulum pharetra risus in lacus semper, at bibendum ligula condimentum. Proin sed massa eget risus malesuada dignissim et in ipsum. Donec convallis tellus vel lectus lobortis, non lobortis libero faucibus. Sed nec posuere mi. Pellentesque sed sem sit amet erat lobortis commodo nec ut nisl. Pellentesque rhoncus risus id massa accumsan, hendrerit posuere mauris pulvinar.\n\nNullam risus felis, dictum et varius eget, rutrum non nunc. Vestibulum lorem nulla, porttitor ac sapien interdum, porta tristique turpis. Quisque ut dui vitae urna congue scelerisque. Nulla eu commodo felis. Nulla aliquam magna a arcu elementum, vitae tincidunt risus semper. Sed consectetur diam vel magna mattis, sed congue nisi fringilla. Ut in facilisis elit. Etiam aliquet orci urna. Nam interdum nunc fringilla iaculis cursus.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ligula sapien, fermentum vitae aliquam sed, lacinia in nibh. Pellentesque euismod diam eget justo interdum, sit amet elementum ipsum vulputate. Aliquam sed purus urna. Vivamus luctus nisi sem, a fringilla velit iaculis id. Donec nec vulputate justo. Fusce vulputate sodales tellus, in fringilla ante posuere non. Vivamus vulputate nisl non augue dignissim, consectetur rutrum risus facilisis. Sed consectetur aliquam dolor, sed pulvinar mi tristique vitae. Donec quis ligula quis velit consequat dictum id eu felis. Mauris ac congue ante, sed elementum eros.\n\nSed eu euismod dolor, a vestibulum lorem. Phasellus euismod volutpat risus sit amet pellentesque. Integer sit amet nisl malesuada, posuere orci sodales, euismod metus. Suspendisse potenti. Nullam mollis tristique accumsan. Vestibulum sit amet dictum nisl. Sed rhoncus lacus purus, vitae scelerisque urna venenatis at.\n\nUt ornare sapien sed condimentum varius. Nulla ut varius nibh. Nam consequat ligula sem, interdum hendrerit diam commodo sed. Vestibulum imperdiet mauris quis mauris vestibulum lobortis. Nunc bibendum, nunc ut porttitor tristique, turpis mauris cursus magna, ac molestie risus hendrerit odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pulvinar odio vestibulum ligula mollis, vel venenatis orci semper. Duis consectetur molestie justo, ut pulvinar nisi semper vel. Cras quis fringilla augue, ut vehicula turpis. Praesent nec imperdiet dui. Morbi quis pharetra lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed luctus mauris vitae augue rhoncus, vel interdum nisl pellentesque. In tempor, mi et vestibulum condimentum, nisl mauris cursus diam, aliquet vestibulum risus erat sit amet diam.\n\nInteger suscipit eros at diam tempor, ac condimentum turpis pharetra. Vestibulum pharetra risus in lacus semper, at bibendum ligula condimentum. Proin sed massa eget risus malesuada dignissim et in ipsum. Donec convallis tellus vel lectus lobortis, non lobortis libero faucibus. Sed nec posuere mi. Pellentesque sed sem sit amet erat lobortis commodo nec ut nisl. Pellentesque rhoncus risus id massa accumsan, hendrerit posuere mauris pulvinar.\n\nNullam risus felis, dictum et varius eget, rutrum non nunc. Vestibulum lorem nulla, porttitor ac sapien interdum, porta tristique turpis. Quisque ut dui vitae urna congue scelerisque. Nulla eu commodo felis. Nulla aliquam magna a arcu elementum, vitae tincidunt risus semper. Sed consectetur diam vel magna mattis, sed congue nisi fringilla. Ut in facilisis elit. Etiam aliquet orci urna. Nam interdum nunc fringilla iaculis cursus.</string>
+    <string name="key">密码：</string>
+    <string name="launcher_item_bet_lottery11">9</string>
+    <string name="launcher_item_bet_lottery12">11</string>
+    <string name="launcher_item_bet_lottery13">10</string>
+    <string name="launcher_item_bet_lottery14">15</string>
+    <string name="launcher_item_bet_lottery30">13</string>
+    <string name="launcher_item_bet_lottery31">14</string>
+    <string name="launcher_item_bet_lottery34">12</string>
+    <string name="launcher_item_bet_lottery36">17</string>
+    <string name="launcher_item_bet_lottery46">16</string>
+    <string name="launcher_item_bet_lottery89">18</string>
+    <string name="launcher_item_bet_sales">5</string>
+    <string name="launcher_item_login_or_register">2</string>
+    <string name="launcher_item_message">1</string>
+    <string name="launcher_item_open_award">6</string>
+    <string name="launcher_item_user_buy_record">4</string>
+    <string name="launcher_item_user_center">3</string>
+    <string name="launcher_item_user_draw_money">8</string>
+    <string name="launcher_item_user_recharge">7</string>
+    <string name="loading">数据加载中...</string>
+    <string name="long_click_bookmark_title">书签操作</string>
+    <string name="long_click_history_title">历史操作</string>
+    <string name="match_actionbar_example">Match Action Bar Example</string>
+    <string name="menu_add_index">添加导航</string>
+    <string name="menu_back">返回</string>
+    <string name="menu_bookmark">书签</string>
+    <string name="menu_history">历史</string>
+    <string name="menu_refresh">刷新</string>
+    <string name="menu_settings">Settings</string>
+    <string name="message">send successfully!</string>
+    <string name="message_title">20</string>
+    <string name="mobile">Please input the TEL No.</string>
+    <string name="modify">修改</string>
+    <string name="myTV">数据库演示</string>
+    <string name="myTV2">我是第二个Activity</string>
+    <string name="name">用户名：</string>
+    <string name="no_data">最近三天后没有联系人通话时长达到一小时以上</string>
+    <string name="no_data_contact">没有通话记录</string>
+    <string name="no_picture_string">无图</string>
+    <string name="phonenumber">请输入号码</string>
+    <string name="qq">腾讯</string>
+    <string name="send">发送</string>
+    <string name="set">Set</string>
+    <string name="settings">设置</string>
+    <string name="soso">搜搜</string>
+    <string name="strHint"/>
+    <string name="str_web_01">CBrowser</string>
+    <string name="str_web_02">CBrowser</string>
+    <string name="str_web_03">CBrowser</string>
+    <string name="str_web_04">CBrowser</string>
+    <string name="str_web_05">CBrowser</string>
+    <string name="strbt1">插入数据</string>
+    <string name="strbt3">查询数据</string>
+    <string name="strbtn2">删除数据</string>
+    <string name="strbtn4">更新数据</string>
+    <string name="subscibe_title">19</string>
+    <string name="support_cache">支持缓存</string>
+    <string name="support_cookie">支持表单保存</string>
+    <string name="support_javascript">支持javascript</string>
+    <string name="support_picture">支持阻碍图片</string>
+    <string name="support_zoom">支持缩放</string>
+    <string name="text1">姓名：</string>
+    <string name="text2">年龄：</string>
+    <string name="text3">籍贯：</string>
+    <string name="title_activity_main_view">DroidBrowser</string>
+    <string name="url_input">输入网址或关键词</string>
+    <string name="visit_website">进入</string>
+    <string name="webName">网页名称</string>
+    <string name="webUrl">网址链接</string>
+    <string name="windows_String">1</string>
+    <string name="wipe">清空</string>
+    <string name="without_history">无痕浏览</string>
+    <string name="yahoo">雅虎</string>
+    <style name="ActionBarTheme" parent="android:Theme.Light">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style mce_bogus="1" name="FromBottomAnimation" parent="android:Animation">        
+		<item name="android:windowEnterAnimation">@anim/frombottom_enter</item>     
+		<item name="android:windowExitAnimation">@anim/frombottom_exit</item>     
+	</style>
+    <style mce_bogus="1" name="FromRightAnimation" parent="android:Animation">        
+		<item name="android:windowEnterAnimation">@anim/in_from_right</item>     
+		<item name="android:windowExitAnimation">@anim/out_to_left</item>     
+	</style>
+    <style name="FullBleedTheme" parent="android:Theme.Light.NoTitleBar">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="loading_small" parent="@android:style/Widget.ProgressBar.Small">
+		<item name="android:layout_width">21dip</item> 
+		<item name="android:layout_height">21dip</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+</resources>

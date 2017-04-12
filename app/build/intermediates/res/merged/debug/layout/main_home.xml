@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:orientation="vertical"
+    android:background="@drawable/wallpaper_liveweather_fog" >
+    <RelativeLayout 
+        android:id="@+id/rl_01"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0">
+        <TextView android:id="@+id/desktime"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="12:00"
+            android:textColor="@color/blackText"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+        
+    </RelativeLayout>
+      
+<com.example.mycloud.ScrollLayout
+  android:id="@+id/ScrollLayoutTest"
+  android:layout_width="fill_parent"
+  android:layout_height="0dp"
+  android:layout_weight="15">
+   
+</com.example.mycloud.ScrollLayout>
+<LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_height="15dp"
+        
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/da"   
+            android:id="@+id/imageview1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiao"
+            android:id="@+id/imageview2"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiao"
+            android:id="@+id/imageview3"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiao"
+            android:id="@+id/imageview4"
+            />
+            
+        </LinearLayout>
+<LinearLayout android:id="@+id/bottom02"
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="3"
+    android:gravity="center"
+    android:paddingBottom="5dp"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+        <ImageView android:id="@+id/ic_phone_launcher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:src="@drawable/ic_phone_launcher"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="拨号"/>
+    </RelativeLayout>   
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+        <ImageView android:id="@+id/ic_contacts_launcher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:src="@drawable/ic_contacts_launcher"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="联系人"/>
+    </RelativeLayout> 
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+        <ImageView android:id="@+id/ic_sns_launcher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:src="@drawable/ic_sns_launcher"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="短信"/>
+    </RelativeLayout> 
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+        <ImageView android:id="@+id/ic_web_launcher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:src="@drawable/ic_web_launcher"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="浏览器"/>
+    </RelativeLayout>    
+</LinearLayout>
+
+
+
+<LinearLayout android:id="@+id/bottom"
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:visibility="gone"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <ImageView android:layout_width="40dp"
+       android:layout_height="match_parent"
+       android:src="@drawable/ic_notification"/>      
+</LinearLayout>
+
+
+
+</LinearLayout>

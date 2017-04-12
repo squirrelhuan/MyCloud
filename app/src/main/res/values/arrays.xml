@@ -1,0 +1,63 @@
+<resources >
+    <declare-styleable name="CustomAudioIcon">
+        <attr name="type">
+            <enum name="start" value="0" />            
+            <enum name="forward" value="1" />
+            <enum name="backward" value="2" />
+            <enum name="exit" value="3" />
+            <enum name="mode" value="4" />
+        </attr>
+        <attr name="color" format="color"/>
+    </declare-styleable>
+    <string-array name="menuitems">
+        <item >桌面设置</item>
+        <item >桌面设置</item>
+        <item >桌面设置</item>
+        <item >桌面设置</item>
+        <item >桌面设置</item>
+        <item >桌面设置</item>
+    </string-array>
+    <string-array name="main_setting_01">
+        <item >wlan</item>
+        <item >移动网络</item>
+        <item >蓝牙</item>
+        <item >更多</item>
+        <item >安全服务</item>
+        <item >GPS定位</item>
+        <item >账户同步</item>
+        <item >个人中心</item>
+        <item >存储</item>
+        <item >应用程序</item>
+        <item >手势体感</item>
+        <item >电量管理</item>
+        <item >日期和时间</item>
+        <item >语言和输入法</item>
+        <item >关于手机</item>
+        <item >更多</item> 
+    </string-array>
+    <string-array name="main_setting_02">
+        <item >音量</item>
+        <item >静音模式</item>
+        <item >来电铃声</item>
+        <item >信息铃声</item>
+        <item >其他通知</item>
+        <item >响铃时震动</item>
+        <item >拨号按键音</item>
+        <item >触摸提示音</item>
+        <item >锁屏提示音</item>
+        <item >开机提示音</item>
+        <item >触摸时震动</item>
+    </string-array>
+     <string-array name="main_setting_03">
+        <item >亮度</item>
+        <item >壁纸和锁屏样式</item>
+        <item >背光时间</item>
+        <item >自动旋转屏幕</item>
+        <item >电量百分比</item>
+        <item >按键背光</item>
+        <item >字体</item>
+        <item >节日壁纸</item>
+    </string-array>
+    
+     
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/RelativeLayout01" 
+    android:orientation="vertical"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:background="@drawable/blue_striped_bg" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <SurfaceView android:id="@+id/VideoSurfaceView" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent">
+    </SurfaceView>  
+    <TextView android:id="@+id/path_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:singleLine="true"
+        android:textColor="@color/white_color"
+        android:text="Cplayer"
+        android:background="#53000000"/> 
+      
+    	
+</RelativeLayout>

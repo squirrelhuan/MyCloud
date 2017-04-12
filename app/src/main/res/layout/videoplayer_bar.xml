@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/RelativeLayout02" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <SeekBar android:id="@+id/VideoSeekBar" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/bg_bar"  
+        android:thumb="@drawable/thumb_bar">
+        </SeekBar>
+        
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/VideoSeekBar"
+            android:layout_height="wrap_content">
+            
+        <ImageView android:id="@+id/rewind_down" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_media_rew"> 
+         </ImageView>   
+        <ImageView android:id="@+id/startImgBtn" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_media_state">          
+        </ImageView>
+ 
+         <ImageView android:id="@+id/Fast_Forward" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_media_ff">
+        </ImageView>
+        
+        </LinearLayout>       
+    </RelativeLayout>
+
+

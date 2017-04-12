@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/color_green">
+        <ImageView android:id="@+id/ic_users"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/audio"/>
+        <TextView android:id="@+id/users_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_color"
+            android:textSize="18sp"
+            android:layout_below="@+id/ic_users"
+            android:layout_centerHorizontal="true"
+            android:text="用戶名"/>
+        <ListView android:id="@+id/sms_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:divider="#00000000"
+        android:dividerHeight="8dp"
+        android:background="@drawable/linearlayout"
+        android:orientation="horizontal">
+        
+       
+     </ListView>
+        <TextView android:id="@+id/user_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+   
+    <EditText android:id="@+id/title"
+        android:layout_width="80dp"
+        android:layout_height="40dp"/>
+    <EditText android:id="@+id/content"
+        android:layout_toRightOf="@+id/title"
+        android:layout_width="80dp"
+        android:layout_height="40dp"/>
+    <Button android:id="@+id/button_save"
+        android:layout_below="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存"/>
+    <Button android:id="@+id/button_read"
+        android:layout_below="@+id/title"
+        android:layout_toRightOf="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="读取"/>
+    </RelativeLayout>
+    <ImageView android:id="@+id/iv_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+     <ImageView android:id="@+id/iv_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+ 
+</LinearLayout>
