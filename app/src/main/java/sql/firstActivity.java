@@ -2,9 +2,6 @@ package sql;
 
 
 
-import com.example.mycloud.R;
-
-
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -15,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import com.example.mycloud.R;
 
 
 public class firstActivity extends Activity {
@@ -61,9 +60,9 @@ public void onCreate(Bundle savedInstanceState) {
     }
     
     ContentValues cv=new ContentValues();
-    cv.put(NAME, "张三");
+    cv.put(NAME, "");
     cv.put(AGE, "18");
-    cv.put(HOME, "北京");
+    cv.put(HOME, "");
     mydb.insert(TABLE_NAME, null, cv);
     
    
@@ -149,8 +148,6 @@ public void onCreate(Bundle savedInstanceState) {
 
 public void showData()
 {
-   // editText.setText("数据库内容：\n");
-   // editText.append("姓名\t\t年龄\t\t籍贯\n");
    
     Cursor cur=mydb.query(TABLE_NAME, new String[] {ID,NAME,AGE,HOME}, null, null, null, null, null);
     int count=cur.getCount();

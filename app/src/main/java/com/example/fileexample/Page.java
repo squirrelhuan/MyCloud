@@ -1,73 +1,32 @@
 package com.example.fileexample;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-
-
-
-
-
-
-
-
-
-
-
-import com.example.mycloud.MyAdapter;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.Window;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.DisplayMetrics;
-import android.graphics.Matrix;
-import android.widget.ImageView;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 
-
-
-
-
-
-import java.util.List;
-import java.util.ArrayList;
-
-
-
-
-
-
+import com.example.mycloud.MyAdapter;
 import com.example.mycloud.R;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.res.Resources;
-import android.view.Menu;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.TextView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.DisplayMetrics;
-import android.graphics.Matrix;
-import android.widget.ImageView;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Page extends Activity {
 
@@ -116,7 +75,7 @@ public class Page extends Activity {
         	}
         	else{
         	item_web.put("img",imageId[i]);
-        	item_web.put("username","ÐÕÃû("+i+")"+array_dt[i]);
+        	item_web.put("username","("+i+")"+array_dt[i]);
         	item_web.put("age",(20+i)+"");
         	item.add(item_web);
         	}
@@ -154,7 +113,7 @@ public class Page extends Activity {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             
             @Override
-            public void onPageSelected(int arg0) {                                 //µ±»¬¶¯Ê½£¬¶¥²¿µÄimageViewÊÇÍ¨¹ýanimation»ºÂýµÄ»¬¶¯
+            public void onPageSelected(int arg0) {//imageViewï¿½
                 // TODO Auto-generated method stub
                 switch (arg0)
                 {
@@ -195,7 +154,6 @@ public class Page extends Activity {
                     }
                 }
                 currentItem = arg0;
-                
                 animation.setDuration(500);
                 animation.setFillAfter(true);
                 imageView.startAnimation(animation);
@@ -259,7 +217,7 @@ public class Page extends Activity {
         
         offSet = (dm.widthPixels - 3 * bmWidth) / 6;
         matrix.setTranslate(offSet, 0);
-        imageView.setImageMatrix(matrix);                                             //ÐèÒªiamgeViewµÄscaleTypeÎªmatrix
+        imageView.setImageMatrix(matrix);                                             //ï¿½ï¿½ÒªiamgeViewï¿½ï¿½scaleTypeÎªmatrix
         currentItem = 0;
     }
 }

@@ -1,9 +1,5 @@
 package cells;
 
-import musicplayer.MainActivity;
-
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -14,40 +10,41 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.example.mycloud.R;
+
+import musicplayer.MainActivity;
+
 public class CustomNotificationActivity extends Activity {
 	NotificationManager notificationManager;  
     @Override  
     public void onCreate(Bundle savedInstanceState) {  
         super.onCreate(savedInstanceState);  
         setContentView(R.layout.noti_layout);  
-        //»ñÈ¡µ½ÏµÍ³µÄnotificationManager  
+        //notificationManager
         notificationManager =  (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);  
     }  
       
     public void click(View view ){  
-        //ÊµÀý»¯Ò»¸önotification   
-         String tickerText = "IPºÅÂë ÉèÖÃÍê±Ï";  
+        //notification
+         String tickerText = "IPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";  
          long when = System.currentTimeMillis();  
          Notification notification = new Notification(R.drawable.audio, tickerText, when);  
-           
-         //²»ÄÜÊÖ¶¯ÇåÀí  
-         //notification.flags= Notification.FLAG_NO_CLEAR;  
-         //Ìí¼ÓÒôÀÖ  
+
+         //notification.flags= Notification.FLAG_NO_CLEAR;
          //notification.sound = Uri.parse("/sdcard/haha.mp3");   
            
-         //ÉèÖÃÓÃ»§µã»÷notificationµÄ¶¯×÷   
-         // pendingIntent ÑÓÆÚµÄÒâÍ¼   
+         //notificationï¿½Ä¶ï¿½ï¿½ï¿½
+         // pendingIntent ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Í¼   
          Intent intent = new Intent(this,MainActivity.class);  
          PendingIntent pendingIntent  = PendingIntent.getActivity(this, 0, intent, 0);  
          notification.contentIntent = pendingIntent;  
-          
-         //×Ô¶¨Òå½çÃæ   
+
          RemoteViews rv = new RemoteViews(getPackageName(), R.layout.noti_layout);  
-         rv.setTextViewText(R.id.tv_rv, "ÕýÔÚ²¥·Å£º");  
+         rv.setTextViewText(R.id.tv_rv, "ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Å£ï¿½");  
          rv.setProgressBar(R.id.pb_rv, 80, 20, false);  
          notification.contentView = rv;  
            
-         //°Ñ¶¨ÒåµÄnotification ´«µÝ¸ø notificationmanager   
+         //notification notificationmanager
          notificationManager.notify(0, notification);  
     }
 }

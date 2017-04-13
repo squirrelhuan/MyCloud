@@ -4,10 +4,6 @@ import java.io.InputStream;
 import java.io.ByteArrayOutputStream;;
 
 public class StreamTool {
-/***
- * 读取流中的数据
- * 
- * **/
 	public static byte[] read(InputStream inStream) throws Exception{
 		ByteArrayOutputStream outStream=new ByteArrayOutputStream();
 		byte[] buffer=new byte[1024];

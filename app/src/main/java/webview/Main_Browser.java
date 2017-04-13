@@ -1,47 +1,13 @@
 package webview;
 
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-
-
-import com.example.mycloud.R;
-
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.view.WindowManager.LayoutParams;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.view.animation.TranslateAnimation;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -51,10 +17,8 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.text.Layout;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.Gravity;
@@ -62,29 +26,28 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;  
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.webkit.DownloadListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -96,19 +59,21 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ViewFlipper;
-import android.app.AlertDialog;
-import android.util.Log;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.view.LayoutInflater;
+
+import com.example.mycloud.R;
+
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 
 public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClickListener, OnClickListener, OnGestureListener, OnTouchListener {
-	private static final String[] countriesStr = { "ÕÅÈý", "ÀîËÄ", "ÍõÎå", "ÕÔÁù" };
-	private static final String[] sousuo = { "ÕÅÈý", "ÀîËÄ", "ÍõÎå", "ÕÔÁù" };
+	private static final String[] countriesStr = { "", "", "", "" };
+	private static final String[] sousuo = { "", "", "", "" };
 	private static final String[] COUNTRIES = new String[] {
-		 "Ã÷ÈÕ¿Æ¼¼", "Ã÷ÈÕ¿Æ¼¼ÓÐÏÞ¹«Ë¾", "¼ªÁÖÊ¡Ã÷ÈÕ¿Æ¼¼ÓÐÏÞ¹«Ë¾", "Ã÷ÈÕ±à³Ì´Êµä", "Ã÷ÈÕ"};
+		 "", "", "", "", ""};
 	private  AutoCompleteTextView textView;
 
 	private Spinner mSpinner;
@@ -151,8 +116,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
     
 	
     private boolean waitDouble = true;  
-    private static final int DOUBLE_CLICK_TIME = 350; //Á½´Îµ¥»÷µÄÊ±¼ä¼ä¸ô  
-    
+    private static final int DOUBLE_CLICK_TIME = 350;
 	WindowManager mWindowManager;
 	WindowManager.LayoutParams wmParams;
 	AbsoluteLayout mFloatLayout;
@@ -175,31 +139,30 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		setContentView(R.layout.web_main);
      
 	       
-		textView=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);	//»ñÈ¡×Ô¶¯Íê³ÉÎÄ±¾¿ò
+		textView=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
         ArrayAdapter<String> adaptert2=new ArrayAdapter<String>(this, 
-        							android.R.layout.simple_dropdown_item_1line,COUNTRIES); //´´½¨Ò»¸öArrayAdapterÊÊÅäÆ÷
-        textView.setAdapter(adaptert2);	//Îª×Ô¶¯Íê³ÉÎÄ±¾¿òÉèÖÃÊÊÅäÆ÷
-	
+        							android.R.layout.simple_dropdown_item_1line,COUNTRIES);
+        textView.setAdapter(adaptert2);
 		/* String service=NOTIFICATION_SERVICE;
 	        notificationManager=(NotificationManager)getSystemService(service);
 	        notification=new Notification();
 	        notification.icon=R.drawable.ic_launcher;
-	        notification.tickerText="¸ÐÐ»Ê¹ÓÃ£¡";
+	        notification.tickerText="ï¿½ï¿½Ð»Ê¹ï¿½Ã£ï¿½";
 	        notification.when=System.currentTimeMillis();
 	        Intent intent=new Intent(Main_Browser.this,MainActivity0.class);
 	        PendingIntent pendingIntent=PendingIntent.getActivity(Main_Browser.this, 0, intent, 0);
-	        notification.setLatestEventInfo(Main_Browser.this, "CBrowser", "¸ÐÐ»Äú¶Ôsquirrel»¸µÄÖ§³Ö£¬×£ÄúÉú»îÓä¿ì£¡", pendingIntent);
+	        notification.setLatestEventInfo(Main_Browser.this, "CBrowser", "ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½squirrelï¿½ï¿½ï¿½ï¿½Ö§ï¿½Ö£ï¿½×£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì£¡", pendingIntent);
 	        notificationManager.notify(1,notification);*/
 	
 		
-		gestureDetector = new GestureDetector(this); // ÉùÃ÷¼ì²âÊÖÊÆÊÂ¼þ
+		gestureDetector = new GestureDetector(this); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 		setupViews();
 
 		mActivity = this;
 
 		viewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
 		viewFlipper.setLongClickable(true);
-		gestureDetector = new GestureDetector(this); // ÉùÃ÷¼ì²âÊÖÊÆÊÂ¼þ
+		gestureDetector = new GestureDetector(this); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 
 		
 		GridView iv = new GridView(this);
@@ -207,7 +170,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		viewFlipper.addView(iv, new LayoutParams(LayoutParams.FILL_PARENT,
 				LayoutParams.FILL_PARENT));
 
-		viewFlipper.setAutoStart(true); // ÉèÖÃ×Ô¶¯²¥·Å¹¦ÄÜ£¨µã»÷ÊÂ¼þ£¬Ç°×Ô¶¯²¥·Å£©
+		viewFlipper.setAutoStart(true);
 		viewFlipper.setFlipInterval(3000);
 		if (viewFlipper.isAutoStart() && !viewFlipper.isFlipping()) {
 			viewFlipper.startFlipping();
@@ -276,8 +239,8 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		no_picture_textview = (TextView) findViewById(R.id.no_picture_textview);
 		gridview1 = (GridView) findViewById(R.id.gridview1);
 
-		// Í¼±êÒ³
-		GridView gridview1 = (GridView) findViewById(R.id.gridview1);// Éú³É¶¯Ì¬Êý×é£¬²¢ÇÒ×ªÈëÊý¾Ý
+		// Í¼ï¿½ï¿½Ò³
+		GridView gridview1 = (GridView) findViewById(R.id.gridview1);// ï¿½ï¿½ï¿½É¶ï¿½Ì¬ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ArrayList<HashMap<String, Object>> ItemList = new ArrayList<HashMap<String, Object>>();
 
 		HashMap<String, Object> map_0 = new HashMap<String, Object>();
@@ -287,35 +250,35 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 
 		HashMap<String, Object> map_1 = new HashMap<String, Object>();
 		map_1.put("Image", R.drawable.baidu);
-		map_1.put("Tag", "°Ù¶È");
+		map_1.put("Tag", "ï¿½Ù¶ï¿½");
 		ItemList.add(map_1);
 		HashMap<String, Object> map_2 = new HashMap<String, Object>();
 		map_2.put("Image", R.drawable.qq);
-		map_2.put("Tag", "ÌÚÑ¶");
+		map_2.put("Tag", "ï¿½ï¿½Ñ¶");
 		ItemList.add(map_2);
 		HashMap<String, Object> map_3 = new HashMap<String, Object>();
 		map_3.put("Image", R.drawable.taobao);
-		map_3.put("Tag", "ÌÔ±¦");
+		map_3.put("Tag", "ï¿½Ô±ï¿½");
 		ItemList.add(map_3);
 		HashMap<String, Object> map_4 = new HashMap<String, Object>();
 		map_4.put("Image", R.drawable.yahoo);
-		map_4.put("Tag", "ÑÅ»¢");
+		map_4.put("Tag", "ï¿½Å»ï¿½");
 		ItemList.add(map_4);
 		HashMap<String, Object> map_5 = new HashMap<String, Object>();
 		map_5.put("Image", R.drawable.wandoujia);
-		map_5.put("Tag", "Íã¶¹¼Ô");
+		map_5.put("Tag", "ï¿½ã¶¹ï¿½ï¿½");
 		ItemList.add(map_5);
 		HashMap<String, Object> map_6 = new HashMap<String, Object>();
 		map_6.put("Image", R.drawable.renren);
-		map_6.put("Tag", "ÈËÈË");
+		map_6.put("Tag", "ï¿½ï¿½ï¿½ï¿½");
 		ItemList.add(map_6);
 		HashMap<String, Object> map_7 = new HashMap<String, Object>();
 		map_7.put("Image", R.drawable.sohu);
-		map_7.put("Tag", "ËÑºü");
+		map_7.put("Tag", "ï¿½Ñºï¿½");
 		ItemList.add(map_7);
 		HashMap<String, Object> map_8 = new HashMap<String, Object>();
 		map_8.put("Image", R.drawable.sina);
-		map_8.put("Tag", "ÐÂÀË");
+		map_8.put("Tag", "ï¿½ï¿½ï¿½ï¿½");
 		ItemList.add(map_8);
 		HashMap<String, Object> map_9 = new HashMap<String, Object>();
 		map_9.put("Image", R.drawable.qzone);
@@ -323,11 +286,11 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		ItemList.add(map_9);
 		HashMap<String, Object> map_10 = new HashMap<String, Object>();
 		map_10.put("Image", R.drawable.wode);
-		map_10.put("Tag", "ÎÒµÄ");
+		map_10.put("Tag", "ï¿½Òµï¿½");
 		ItemList.add(map_10);
 		HashMap<String, Object> map_11 = new HashMap<String, Object>();
 		map_11.put("Image", R.drawable.rss);
-		map_11.put("Tag", "±¾µØ");
+		map_11.put("Tag", "ï¿½ï¿½ï¿½ï¿½");
 		ItemList.add(map_11);
 
 		adapter = new SimpleAdapter(getApplicationContext(), ItemList,
@@ -340,15 +303,15 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				Intent intent_MainView = new Intent();
-				// ÉèÖÃ´«µÝ·½Ïò
+				// ï¿½ï¿½ï¿½Ã´ï¿½ï¿½Ý·ï¿½ï¿½ï¿½
 				CB_webview.setVisibility(View.VISIBLE);
 				switch (arg2) {
 				case 0:
 					CB_webview.loadUrl("http://www.google.com.hk");
-					// °ó¶¨Êý¾Ý
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					// intent_MainView.putExtra("url_text1","http://www.google.com.hk");
 					/*
-					 * »òÕß°ó¶¨³ÉÒ»À¦Êý¾Ý Bundle data = new Bundle();
+					 * ï¿½ï¿½ï¿½ß°ó¶¨³ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Bundle data = new Bundle();
 					 * data.putString("username1",username);
 					 * data.putString("userpwd1",userpwd);
 					 * intent.putExtras(data);
@@ -408,7 +371,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 
 				}
 				tablayout_01.setVisibility(View.GONE);
-				// Æô¶¯activity
+				// ï¿½ï¿½ï¿½ï¿½activity
 				// intent_MainView.setClass(MainView.this,MainView.class);
 				// startActivity(intent_MainView);
 				// Intent intent = new Intent();
@@ -416,11 +379,11 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 				// startActivity(intent)
 			}
 		});
-		// Í¼±êÒ³
+		// Í¼ï¿½ï¿½Ò³
 
 		gridView = (GridView) this.findViewById(R.id.gridview_windows);
 		for (int i = 0; i < 10; i++) {
-			dataList.add("²âÊÔ" + i);
+			dataList.add("ï¿½ï¿½ï¿½ï¿½" + i);
 			dataListv.add(ic_bookmark);
 		}
 		inflater = (LayoutInflater) this
@@ -448,7 +411,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 	    //CB_webview.getSettings().setDefaultFontSize(size);
 	    //CB_webview.getSettings().setBlockNetworkImage(true);
 		CB_webview.requestFocus();
-		CB_webview.getSettings().setBuiltInZoomControls(true); // Ëõ·Å
+		CB_webview.getSettings().setBuiltInZoomControls(true); // ï¿½ï¿½ï¿½ï¿½
 		CB_webview.setScrollBarStyle(WebView.SCROLLBARS_INSIDE_OVERLAY);
 		CB_webview.loadUrl("http://www.baidu.com");
 		CB_webview.requestFocus();
@@ -508,7 +471,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 	    Bitmap bmp = CB_webview.getDrawingCache();
 	    return bmp;
 	    }
-	//Ö»½ØÈ¡ÆÁÄ»ÖÐÏÔÊ¾³öÀ´²¿·ÖµÄwebView»­Ãæ:
+	//Ö»ï¿½ï¿½È¡ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½webViewï¿½ï¿½ï¿½ï¿½:
 	private Bitmap captureWebView(WebView webView){
         Picture snapShot = CB_webview.capturePicture();
          
@@ -517,7 +480,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
         snapShot.draw(canvas);
         return bmp;
     }
-	//½ØÈ¡webViewµÄÕû¸öÒ³Ãæ
+	//ï¿½ï¿½È¡webViewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 	private Bitmap captureScreen(Activity context){
 	      View cv = context.getWindow().getDecorView();
 	      Bitmap bmp = Bitmap.createBitmap(cv.getWidth(), cv.getHeight(),Config.ARGB_8888);
@@ -657,11 +620,11 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		});
 	}
 	
-	// ¶¨Òå×Ô¼ºµÄÊÊÅäÆ÷,×¢ÒâgetCountºÍgetView·½·¨
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,×¢ï¿½ï¿½getCountï¿½ï¿½getViewï¿½ï¿½ï¿½ï¿½
 	private class MyAdapter extends BaseAdapter {
 		@Override
 		public int getCount() {
-			// ÕâÀïÎÒ¾Í·µ»Ø10ÁË£¬Ò²¾ÍÊÇÒ»¹²ÓÐ10ÏîÊý¾ÝÏî
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ò¾Í·ï¿½ï¿½ï¿½10ï¿½Ë£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			return 5;
 		}
 
@@ -686,33 +649,33 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 			case 0:
 				convertView = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.baseadapter_provider1, null);
-				webs = "°Ù¶ÈËÑË÷";
+				webs = "ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½";
 				break;
 			case 1:
 				convertView = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.baseadapter_provider2, null);
-				webs = "ËÑ¹·ËÑË÷";
+				webs = "ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½";
 				break;
 			case 2:
 				convertView = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.baseadapter_provider3, null);
-				webs = "¹È¸èËÑË÷";
+				webs = "ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½";
 				break;
 			case 3:
 				convertView = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.baseadapter_provider4, null);
-				webs = "°Ù¶ÈÒ»ÏÂ";
+				webs = "ï¿½Ù¶ï¿½Ò»ï¿½ï¿½";
 				break;
 			case 4:
 				convertView = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.baseadapter_provider5, null);
-				webs = "°Ù¶ÈÒ»ÏÂ";
+				webs = "ï¿½Ù¶ï¿½Ò»ï¿½ï¿½";
 				break;
 
 			default:
 				convertView = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.baseadapter_provider1, null);
-				webs = "Ä¬ÈÏ";
+				webs = "Ä¬ï¿½ï¿½";
 				break;
 			}
 
@@ -724,60 +687,60 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		}
 	}	
 
-	public boolean onKeyDown(int keyCode, KeyEvent event) {// ²¶×½·µ»Ø¼ü
+	public boolean onKeyDown(int keyCode, KeyEvent event) {// ï¿½ï¿½×½ï¿½ï¿½ï¿½Ø¼ï¿½
 		visibility(00);
 		if ((keyCode == KeyEvent.KEYCODE_BACK) && CB_webview.canGoBack()) {
 			CB_webview.goBack();
 			return true;
 		} else if (keyCode == KeyEvent.KEYCODE_BACK) {
-			onDoubleClick(1);// °´ÁË·µ»Ø¼ü£¬µ«ÒÑ¾­²»ÄÜ·µ»Ø£¬ÔòÖ´ÐÐÍË³öÈ·ÈÏ
+			onDoubleClick(1);// ï¿½ï¿½ï¿½Ë·ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ü·ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Ë³ï¿½È·ï¿½ï¿½
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
 
-	public void ConfirmExit() {// ÍË³öÈ·ÈÏ
+	public void ConfirmExit() {// ï¿½Ë³ï¿½È·ï¿½ï¿½
 
 		AlertDialog.Builder ad = new AlertDialog.Builder(Main_Browser.this);
-		ad.setTitle("ÍË³ö");
-		ad.setMessage("ÊÇ·ñÍË³öÈí¼þ?");
-		ad.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {// ÍË³ö°´Å¥
+		ad.setTitle("ï¿½Ë³ï¿½");
+		ad.setMessage("ï¿½Ç·ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½?");
+		ad.setPositiveButton("ï¿½ï¿½", new DialogInterface.OnClickListener() {// ï¿½Ë³ï¿½ï¿½ï¿½Å¥
 					@Override
 					public void onClick(DialogInterface dialog, int i) {
 						// TODO Auto-generated method stub
-						Main_Browser.this.finish();// ¹Ø±Õactivity
+						Main_Browser.this.finish();// ï¿½Ø±ï¿½activity
 					}
 				});
-		ad.setNegativeButton("·ñ", new DialogInterface.OnClickListener() {
+		ad.setNegativeButton("ï¿½ï¿½", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int i) {
-				// ²»ÍË³ö²»ÓÃÖ´ÐÐÈÎºÎ²Ù×÷
+				// ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ÎºÎ²ï¿½ï¿½ï¿½
 			}
 		});
-		ad.show();// ÏÔÊ¾¶Ô»°¿ò
+		ad.show();// ï¿½ï¿½Ê¾ï¿½Ô»ï¿½ï¿½ï¿½
 	}
 
 	public boolean onDoubleClick(int n) {
 
-		// »ñÈ¡Calendar¶ÔÏó
+		// ï¿½ï¿½È¡Calendarï¿½ï¿½ï¿½ï¿½
 		myCalendar = Calendar.getInstance();
-		// Èç¹ûÊÇµÚÒ»´Îµã»÷
+		// ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½Îµï¿½ï¿½
 		if (firClick == 0l) {
 
-			// »ñÈ¡µÚÒ»´Îµã»÷µÄÊ±¼ä
+			// ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½Îµï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 			firClick = myCalendar.getTimeInMillis();
-			// »¹Ã»ÓÐÊ±¼ä¼ä¸ô
+			// ï¿½ï¿½Ã»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
 			distanceTime = 0l;
-			// ÅÐ¶ÏÊÇ·ñÎªµÚ¶þ´Îµã»÷
+			// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½Ú¶ï¿½ï¿½Îµï¿½ï¿½
 		} else if (secClick == 0l) {
 
-			// »ñÈ¡µÚ¶þ´Îµã»÷µÄÊ±¼ä
+			// ï¿½ï¿½È¡ï¿½Ú¶ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 			secClick = myCalendar.getTimeInMillis();
 
-			// µÃ³öÁ½´Îµã»÷µÄ¼ä¸ôÊ±¼ä
+			// ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ê±ï¿½ï¿½
 			distanceTime = secClick - firClick;
 		}
-		// Èç¹ûÊ±¼ä¼ä¸ôÐ¡ÓÚ500ms·½ÎªË«»÷
+		// ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½500msï¿½ï¿½ÎªË«ï¿½ï¿½
 		if (distanceTime > 0l && distanceTime < 500l) {
 			switch (n) {
 			case 1:
@@ -789,14 +752,14 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 			default:
 				break;
 			}		   
-			// ½«Á½´Îµã»÷ÊÂ¼þÇå¿Õ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 			firClick = 0l;
 			secClick = 0l;
 
-			// Ê±¼ä¼ä¸ô¹ý³¤£¬²»ÊÇË«»÷ÊÂ¼þ
+			// Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½Â¼ï¿½
 		} else if (distanceTime > 500l) {
-			Toast.makeText(this, "Ë«»÷ÍË³ö£¡", Toast.LENGTH_SHORT).show();
-			// °ÑµÚ¶þ´Îµã»÷µ±³ÉµÚÒ»´Îµã»÷
+			Toast.makeText(this, "Ë«ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
+			// ï¿½ÑµÚ¶ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½Ò»ï¿½Îµï¿½ï¿½
 			firClick = secClick;
 			secClick = 0l;
 		}
@@ -808,7 +771,7 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		AlertDialog alertDialog;
 		Context mContext = Main_Browser.this;
 
-		// ÏÂÃæÁ©ÖÖ·½·¨¶¼¿ÉÒÔ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		// //LayoutInflaterinflater=getLayoutInflater();
 
 		LayoutInflater inflater = (LayoutInflater) mContext
@@ -955,22 +918,22 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
    
 		case R.id.ic_home:
 			visibility(05);
-			//È¡µÃandroid.graphics.PictureÊµÀý  
+			//È¡ï¿½ï¿½android.graphics.PictureÊµï¿½ï¿½  
 	        Picture picture = CB_webview.capturePicture();  
 	        int width = picture.getWidth();  
 	        int height = picture.getHeight();  
 	        if (width > 0 && height > 0) {  
-	            //´´½¨Ö¸¶¨¸ß¿íµÄBitmap¶ÔÏó  
+	            //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ß¿ï¿½ï¿½Bitmapï¿½ï¿½ï¿½ï¿½  
 	            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);  
-	            //´´½¨Canvas,²¢ÒÔbitmapÎª»æÖÆÄ¿±ê  
+	            //ï¿½ï¿½ï¿½ï¿½Canvas,ï¿½ï¿½ï¿½ï¿½bitmapÎªï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½  
 	            Canvas canvas = new Canvas(bitmap);  
-	            //½«WebViewÓ°Ïñ»æÖÆÔÚCanvasÉÏ  
+	            //ï¿½ï¿½WebViewÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Canvasï¿½ï¿½  
 	            picture.draw(canvas);  
 	            
 	            try {  
 	                String fileName = "/sdcard/webview_capture.jpg";  
 	                FileOutputStream fos = new FileOutputStream(fileName);  
-	                //Ñ¹Ëõbitmapµ½Êä³öÁ÷ÖÐ  
+	                //Ñ¹ï¿½ï¿½bitmapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	                bitmap.compress(Bitmap.CompressFormat.PNG, 90, fos);  
 	                fos.close();  
 	                Toast.makeText(Main_Browser.this, "CAPTURE SUCCESS", Toast.LENGTH_LONG).show();  
@@ -1009,16 +972,16 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 		case R.id.menu_no_picture_mode:
 			if (CB_webview.getSettings().getBlockNetworkImage() == false) {
 				CB_webview.getSettings().setBlockNetworkImage(true);
-				Toast.makeText(this, "½øÈëÓÐÍ¼Ä£Ê½£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Ä£Ê½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 				menu_no_picture_mode
 						.setImageResource(R.drawable.menu_no_picture_mode_off);
-				no_picture_textview.setText("ÓÐÍ¼");
+				no_picture_textview.setText("ï¿½ï¿½Í¼");
 			} else {
 				CB_webview.getSettings().setBlockNetworkImage(false);
-				Toast.makeText(this, "½øÈëÎÞÍ¼Ä£Ê½£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Ä£Ê½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 				menu_no_picture_mode
 						.setImageResource(R.drawable.menu_no_picture_mode);
-				no_picture_textview.setText("ÎÞÍ¼");
+				no_picture_textview.setText("ï¿½ï¿½Í¼");
 			}
 			break;
 		case R.id.menu_refresh_d:
@@ -1135,29 +1098,29 @@ public class Main_Browser<DatabaseHelper> extends Activity implements OnLongClic
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		viewFlipper.stopFlipping(); // µã»÷ÊÂ¼þºó£¬Í£Ö¹×Ô¶¯²¥·Å
+		viewFlipper.stopFlipping(); // ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Í£Ö¹ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
 		viewFlipper.setAutoStart(false);
-		return gestureDetector.onTouchEvent(event); // ×¢²áÊÖÊÆÊÂ¼þ
+		return gestureDetector.onTouchEvent(event); // ×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 	}
 
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 			float velocityY) {
-		if (e2.getX() - e1.getX() > 120) { // ´Ó×óÏòÓÒ»¬¶¯£¨×ó½øÓÒ³ö£©
+		if (e2.getX() - e1.getX() > 120) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½
 			Animation rInAnim = AnimationUtils.loadAnimation(mActivity,
-					R.anim.push_right_in); // ÏòÓÒ»¬¶¯×ó²à½øÈëµÄ½¥±äÐ§¹û£¨alpha 0.1 -> 1.0£©
+					R.anim.push_right_in); // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½alpha 0.1 -> 1.0ï¿½ï¿½
 			Animation rOutAnim = AnimationUtils.loadAnimation(mActivity,
-					R.anim.push_right_out); // ÏòÓÒ»¬¶¯ÓÒ²à»¬³öµÄ½¥±äÐ§¹û£¨alpha 1.0 -> 0.1£©
+					R.anim.push_right_out); // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ò²à»¬ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½alpha 1.0 -> 0.1ï¿½ï¿½
 
 			viewFlipper.setInAnimation(rInAnim);
 			viewFlipper.setOutAnimation(rOutAnim);
 			viewFlipper.showPrevious();
 			return true;
-		} else if (e2.getX() - e1.getX() < -120) { // ´ÓÓÒÏò×ó»¬¶¯£¨ÓÒ½ø×ó³ö£©
+		} else if (e2.getX() - e1.getX() < -120) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó»¬¶ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Animation lInAnim = AnimationUtils.loadAnimation(mActivity,
-					R.anim.push_left_in); // Ïò×ó»¬¶¯×ó²à½øÈëµÄ½¥±äÐ§¹û£¨alpha 0.1 -> 1.0£©
+					R.anim.push_left_in); // ï¿½ï¿½ï¿½ó»¬¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½alpha 0.1 -> 1.0ï¿½ï¿½
 			Animation lOutAnim = AnimationUtils.loadAnimation(mActivity,
-					R.anim.push_left_out); // Ïò×ó»¬¶¯ÓÒ²à»¬³öµÄ½¥±äÐ§¹û£¨alpha 1.0 -> 0.1£©
+					R.anim.push_left_out); // ï¿½ï¿½ï¿½ó»¬¶ï¿½ï¿½Ò²à»¬ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½alpha 1.0 -> 0.1ï¿½ï¿½
 
 			viewFlipper.setInAnimation(lInAnim);
 			viewFlipper.setOutAnimation(lOutAnim);

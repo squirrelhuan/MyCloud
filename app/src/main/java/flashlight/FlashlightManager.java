@@ -1,12 +1,12 @@
 package flashlight;
 
-import java.lang.reflect.Method;
-import java.util.List;
-
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.IBinder;
 import android.util.Log;
+
+import java.lang.reflect.Method;
+import java.util.List;
 
 public class FlashlightManager {  
     private static final String TAG = FlashlightManager.class.getSimpleName();  
@@ -66,11 +66,7 @@ public class FlashlightManager {
             Log.w(TAG, "Unexpected error while finding class " + name, re);  
             return null;  
         }  
-    }  
-    /** 
-     * Í¨¹ýÉèÖÃCamera´ò¿ªÉÁ¹âµÆ 
-     * @param mCamera 
-     */  
+    }
     public static void turnLightOn(Camera mCamera) {  
         if (mCamera == null) {  
             return;  
@@ -98,7 +94,7 @@ public class FlashlightManager {
         }  
     }  
     /** 
-     * Í¨¹ýÉèÖÃCamera¹Ø±ÕÉÁ¹âµÆ 
+     * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cameraï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @param mCamera 
      */  
     public static void turnLightOff(Camera mCamera) {  
@@ -146,7 +142,7 @@ public class FlashlightManager {
         }  
     }  
     /** 
-     * Í¨¹ý·´ÉäÀ´²Ù×÷ÉÁ¹âµÆ 
+     * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @param active 
      */  
     public static void switchFlashlight(boolean active) {  

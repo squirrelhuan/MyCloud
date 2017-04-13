@@ -1,7 +1,5 @@
 package message;
 
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import com.example.mycloud.R;
 
 public class SQLiteSampleActivity extends Activity {
 	EditText title, content;
@@ -36,15 +36,13 @@ public class SQLiteSampleActivity extends Activity {
 					// TODO Auto-generated method stub
 					//mDBHelper.addPeople( title.getText().toString(), content.getText().toString());
 					insertData(db, title.getText().toString(), content.getText().toString());
-					Cursor cursor = db.rawQuery("select * from mydb", null);// 查询的结果集
-																			// ---类似ResultSet
+					Cursor cursor = db.rawQuery("select * from mydb", null);
 					inflateCursor(cursor);
 				} catch (Exception e) {
 					db.execSQL("create table mydb(_id integer primary key autoincrement,title varchar(255),content varchar(255))");
 					insertData(db, title.getText().toString(), content
 							.getText().toString());
-					Cursor cursor = db.rawQuery("select * from mydb", null);// 查询的结果集
-																			// ---类似ResultSet
+					Cursor cursor = db.rawQuery("select * from mydb", null);
 					inflateCursor(cursor);
 				}
 			}

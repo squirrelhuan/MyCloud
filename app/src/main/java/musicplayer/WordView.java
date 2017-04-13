@@ -1,9 +1,5 @@
 package musicplayer;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -12,6 +8,10 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WordView extends TextView {
 private List mWordsList = new ArrayList();
@@ -90,7 +90,7 @@ private void init() throws IOException {
 setFocusable(true);
 
 LrcHandle lrcHandler = new LrcHandle();
-lrcHandler.readLRC("/sdcard/≈„Œ“»•¡˜¿À.lrc");
+lrcHandler.readLRC("/sdcard/.lrc");
 mWordsList = lrcHandler.getWords();
 
 mLoseFocusPaint = new Paint();

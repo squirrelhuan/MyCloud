@@ -1,11 +1,11 @@
 package service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PreferencesService {
 private Context context;
@@ -13,18 +13,13 @@ private Context context;
 	super();
 	this.context = context;
 }
-	/**
-	 * 保存参数
-	 * **/
 	public void save(String username, String usercontent ) {
 		SharedPreferences preferences=context.getSharedPreferences("usercenter", Context.MODE_PRIVATE);
 		Editor editor= preferences.edit();
 		editor.putString("username", username);
 		editor.putString("usercontent", usercontent);
 		editor.commit();
-	}/**
-	获取参数
-	**/
+	}
 
 	public Map<String, String> getPreferences() {
 		Map<String,String>params=new HashMap<String, String>();

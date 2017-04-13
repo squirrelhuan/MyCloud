@@ -38,11 +38,9 @@ import android.widget.Toast;
 public class FxService extends Service implements OnTouchListener, OnClickListener, OnLongClickListener 
 {
 
-	//¶¨Òå¸¡¶¯´°¿Ú²¼¾Ö
     LinearLayout mFloatLayout;
     WindowManager.LayoutParams wmParams;
    // WindowManager.LayoutParams wmParams;
-    //´´½¨¸¡¶¯´°¿ÚÉèÖÃ²¼¾Ö²ÎÊýµÄ¶ÔÏó
 	WindowManager mWindowManager;
 	ImageView mFloatView,mFloatView1,mFloatView2,mFloatView3,mFloatView4;
 	
@@ -59,8 +57,6 @@ public class FxService extends Service implements OnTouchListener, OnClickListen
 	public void onCreate() 
 	{
 		// TODO Auto-generated method stub
-		
-		
 
 		DisplayMetrics dm = new DisplayMetrics();
 		dm = getResources().getDisplayMetrics();
@@ -126,38 +122,38 @@ public class FxService extends Service implements OnTouchListener, OnClickListen
 	private void createFloatView()
 	{
 		wmParams = new WindowManager.LayoutParams();
-		//»ñÈ¡WindowManagerImpl.CompatModeWrapper
+		//ï¿½ï¿½È¡WindowManagerImpl.CompatModeWrapper
 		
 		mWindowManager = (WindowManager)getApplication().getSystemService(getApplication().WINDOW_SERVICE);
-		//ÉèÖÃwindow type
+		//ï¿½ï¿½ï¿½ï¿½window type
 		wmParams.type = LayoutParams.TYPE_PHONE; 
-		//ÉèÖÃÍ¼Æ¬¸ñÊ½£¬Ð§¹ûÎª±³¾°Í¸Ã÷
+		//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ê½ï¿½ï¿½Ð§ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½
         wmParams.format = PixelFormat.RGBA_8888; 
-        //ÉèÖÃ¸¡¶¯´°¿Ú²»¿É¾Û½¹£¨ÊµÏÖ²Ù×÷³ý¸¡¶¯´°¿ÚÍâµÄÆäËû¿É¼û´°¿ÚµÄ²Ù×÷£©
+        //ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½É¾Û½ï¿½ï¿½ï¿½Êµï¿½Ö²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ï¿½ÚµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½
         wmParams.flags = 
 //          LayoutParams.FLAG_NOT_TOUCH_MODAL |
           LayoutParams.FLAG_NOT_FOCUSABLE
 //          LayoutParams.FLAG_NOT_TOUCHABLE
           ; 
-        //µ÷ÕûÐü¸¡´°ÏÔÊ¾µÄÍ£¿¿Î»ÖÃÎª×ó²àÖÃ¶¥
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Í£ï¿½ï¿½Î»ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ã¶ï¿½
         wmParams.gravity = Gravity.LEFT | Gravity.TOP; 
         
-        // ÒÔÆÁÄ»×óÉÏ½ÇÎªÔ­µã£¬ÉèÖÃx¡¢y³õÊ¼Öµ
+        // ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ï½ï¿½ÎªÔ­ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½yï¿½ï¿½Ê¼Öµ
         wmParams.x = width;
         wmParams.y = 200;
         
-        /*// ÉèÖÃÐü¸¡´°¿Ú³¤¿íÊý¾Ý
+        /*// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         wmParams.width = 200;
         wmParams.height = 80;*/
         
-        //ÉèÖÃÐü¸¡´°¿Ú³¤¿íÊý¾Ý  
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         
         LayoutInflater inflater = LayoutInflater.from(getApplication());
-        //»ñÈ¡¸¡¶¯´°¿ÚÊÓÍ¼ËùÔÚ²¼¾Ö
+        //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½
         mFloatLayout = (LinearLayout) inflater.inflate(R.layout.float_layout, null);
-        //Ìí¼ÓmFloatLayout
+        //ï¿½ï¿½ï¿½mFloatLayout
         mWindowManager.addView(mFloatLayout, wmParams);
         
         Log.i(TAG, "mFloatLayout-->left" + mFloatLayout.getLeft());
@@ -165,7 +161,7 @@ public class FxService extends Service implements OnTouchListener, OnClickListen
         Log.i(TAG, "mFloatLayout-->top" + mFloatLayout.getTop());
         Log.i(TAG, "mFloatLayout-->bottom" + mFloatLayout.getBottom());      
         
-        //¸¡¶¯´°¿Ú°´Å¥
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½Å¥
         mFloatView = (ImageView)mFloatLayout.findViewById(R.id.float_id);
         mFloatView1 = (ImageView)mFloatLayout.findViewById(R.id.float_back_id);
         mFloatView2 = (ImageView)mFloatLayout.findViewById(R.id.float_home_id);
@@ -177,7 +173,7 @@ public class FxService extends Service implements OnTouchListener, OnClickListen
         
         Log.i(TAG, "Width/2--->" + mFloatView.getMeasuredWidth()/2);
         Log.i(TAG, "Height/2--->" + mFloatView.getMeasuredHeight()/2);
-        //ÉèÖÃ¼àÌý¸¡¶¯´°¿ÚµÄ´¥ÃþÒÆ¶¯
+        //ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ´ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         mFloatView.setOnLongClickListener(this);;
         
         mFloatView.setOnTouchListener(this);

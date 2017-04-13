@@ -1,32 +1,17 @@
 package cells;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-
-
-
-
-import com.example.mycloud.R;
-
-import android.app.TabActivity;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabSpec;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TabHost;
-import android.widget.Toast;
+
+import com.example.mycloud.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class cell_listview extends Activity{
 
@@ -58,7 +43,7 @@ public class cell_listview extends Activity{
         	}
         	else{
         	item_web.put("img",imageId[i]);
-        	item_web.put("username","ÐÕÃû("+i+")"+array_dt[i]);
+        	item_web.put("username","("+i+")"+array_dt[i]);
         	item_web.put("age",(20+i)+"");
         	item.add(item_web);
         	}
@@ -70,11 +55,11 @@ public class cell_listview extends Activity{
 /*
 		lv_setting=new ListView(this);
 		list=new ArrayList<String>();
-		list.add("×ÖÌåÅÅ°æ");
-		list.add("ÁÁ¶Èµ÷½Ú");
-		list.add("Á÷Á¿¹ÜÀí");
-		list.add("¸öÐÔ»¯ÉèÖÃ");
-		list.add("¹ØÓÚCbrowser");
+		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½");
+		list.add("ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½");
+		list.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		list.add("ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½");
+		list.add("ï¿½ï¿½ï¿½ï¿½Cbrowser");
 		aa=new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1,list);
 		lv_setting.setAdapter(aa);
@@ -85,7 +70,7 @@ public class cell_listview extends Activity{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				//Toast.makeText(MainSetting_list.this, "µ±Ç°Ñ¡ÔñÖÐÁÐ±íÏîµÄÏÂ±êÎª£º"+position, Toast.LENGTH_SHORT).show();
+				//Toast.makeText(MainSetting_list.this, "ï¿½ï¿½Ç°Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½Îªï¿½ï¿½"+position, Toast.LENGTH_SHORT).show();
 			}
 			
 	

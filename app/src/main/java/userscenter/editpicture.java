@@ -1,10 +1,5 @@
 package userscenter;
 
-import java.io.File;
-import java.util.Calendar;
-
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -12,6 +7,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.mycloud.R;
+
+import java.io.File;
+import java.util.Calendar;
 
 public class editpicture extends Activity{
 	private ImageView imageView;  
@@ -25,23 +25,23 @@ public class editpicture extends Activity{
   
     public void onclickFun(View view) {  
         Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT);  
-        innerIntent.putExtra("crop", "true");// 才能出剪辑的小方框，不然没有剪辑功能，只能选取图片  
-        innerIntent.putExtra("aspectX", 1); // 出现放大和缩小  
-        innerIntent.setType("image/*"); // 查看类型 详细的类型在 com.google.android.mms.ContentType   
+        innerIntent.putExtra("crop", "true");
+        innerIntent.putExtra("aspectX", 1);
+        innerIntent.setType("image/*"); //com.google.android.mms.ContentType
           
-        tempFile=new File("/sdcard/ll1x/"+Calendar.getInstance().getTimeInMillis()+".jpg"); // 以时间秒为文件名  
-        File temp = new File("/sdcard/ll1x/");//自已项目 文件夹  
+        tempFile=new File("/sdcard/ll1x/"+Calendar.getInstance().getTimeInMillis()+".jpg");
+        File temp = new File("/sdcard/ll1x/");
         if (!temp.exists()) {  
             temp.mkdir();  
         }  
-        innerIntent.putExtra("output", Uri.fromFile(tempFile));  // 专入目标文件     
-        innerIntent.putExtra("outputFormat", "JPEG"); //输入文件格式    
+        innerIntent.putExtra("output", Uri.fromFile(tempFile));
+        innerIntent.putExtra("outputFormat", "JPEG");
           
-        Intent wrapperIntent = Intent.createChooser(innerIntent, "先择图片"); //开始 并设置标题  
-        startActivityForResult(wrapperIntent, 1); // 设返回 码为 1  onActivityResult 中的 requestCode 对应  
+        Intent wrapperIntent = Intent.createChooser(innerIntent, "锟斤拷锟斤拷图片");
+        startActivityForResult(wrapperIntent, 1);
     }  
       
-    //调用成功反回方法  
+    //锟斤拷锟矫成癸拷锟斤拷锟截凤拷锟斤拷  
     @Override  
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
         super.onActivityResult(requestCode, resultCode, data);  

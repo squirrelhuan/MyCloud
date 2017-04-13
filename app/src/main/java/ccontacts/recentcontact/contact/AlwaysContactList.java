@@ -6,7 +6,7 @@ import com.example.mycloud.R;
 import ccontacts.recentcontact.contact.base.BaseContactList;
 
 public class AlwaysContactList extends BaseContactList {
-	//private final String duration = "1";		//通话时长一小时
+	//private final String duration = "1";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

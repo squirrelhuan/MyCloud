@@ -1,38 +1,26 @@
 package message;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-
-
-import org.w3c.dom.Text;
-
-import com.example.mycloud.R;
-
-import android.telephony.SmsManager;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Contacts;
-import android.provider.ContactsContract;
-import android.provider.Telephony.Sms;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mycloud.R;
+
+import java.util.List;
 
 public class SMSSender extends Activity implements OnClickListener{
     private static final Context context = null;
@@ -85,7 +73,7 @@ public class SMSSender extends Activity implements OnClickListener{
 				
 				for(String text:texts){
 					sms.sendTextMessage(mobile,null,text,null,null);
-					Toast.makeText(SMSSender.this, "短信发送完成", Toast.LENGTH_LONG).show();
+					Toast.makeText(SMSSender.this, "", Toast.LENGTH_LONG).show();
 					break;
 					//smsManager.sendTextMessage(mobile, null, msg, sentIntent, null);
 				}
@@ -95,21 +83,18 @@ public class SMSSender extends Activity implements OnClickListener{
 					// TODO Auto-generated method stub
 					insertData(db, mobiletext.getText().toString(), messagetext
 							.getText().toString());
-					Cursor cursor = db.rawQuery("select * from mydb", null);// 查询的结果集
-																			// ---类似ResultSet
+					Cursor cursor = db.rawQuery("select * from mydb", null);
 					inflateCursor(cursor);
 				} catch (Exception e) {
 					db.execSQL("create table mydb(_id integer primary key autoincrement,mobiletext varchar(255),messagetext varchar(255))");
 					insertData(db, mobiletext.getText().toString(), messagetext
 							.getText().toString());
-					Cursor cursor = db.rawQuery("select * from mydb", null);// 查询的结果集
-																			// ---类似ResultSet
+					Cursor cursor = db.rawQuery("select * from mydb", null);
 					inflateCursor(cursor);
 				}
 
 			/*else{
 				smsManager.sendTextMessage(mobile, null, menussage, sentIntent, null);
-				
 			}*/
 			
 		/*case R.id.button2:

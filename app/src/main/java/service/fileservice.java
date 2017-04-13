@@ -1,12 +1,12 @@
 package service;
 
+import android.content.Context;
+import android.os.Environment;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-
-import android.content.Context;
-import android.os.Environment;
 
 public class fileservice {
 	private Context context;
@@ -16,11 +16,7 @@ public fileservice(Context context) {
 		this.context = context;
 	}
 
-/**
- * 
- */
 	public void save(String filename,String filecontent) throws Exception{
-		//Ë½ÓÐÄ£Ê½¸²¸Ç
 	  FileOutputStream outStream=context.openFileOutput(filename, context.MODE_PRIVATE);
 		outStream.write(filecontent.getBytes());
 		outStream.close();

@@ -1,15 +1,15 @@
 package musicplayer;
 
-import java.io.IOException;
-import java.util.List;
-
-import com.example.mycloud.R;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.mycloud.R;
+
+import java.io.IOException;
+import java.util.List;
 
 public class MainActivity_lrc extends Activity {
 	private WordView mWordView;
@@ -28,9 +28,9 @@ public class MainActivity_lrc extends Activity {
 		mPlayer.reset();
 		LrcHandle lrcHandler = new LrcHandle();
 		try {
-			lrcHandler.readLRC("/sdcard/陪我去流浪.lrc");
+			lrcHandler.readLRC("/sdcard/.lrc");
 			mTimeList = lrcHandler.getTime();
-			mPlayer.setDataSource("/sdcard/陪我去流浪.mp3");
+			mPlayer.setDataSource("/sdcard/.mp3");
 			mPlayer.prepare();
 		} catch (IOException e) {
 			e.printStackTrace();

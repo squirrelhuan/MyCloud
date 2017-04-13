@@ -2,30 +2,26 @@ package cphone;
 
 
 
-import com.example.mycloud.R;
-
-import android.provider.Contacts;
-import android.provider.Telephony;
 import android.app.Activity;
-import android.net.Uri;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.provider.Contacts;
 import android.telephony.TelephonyManager;
 import android.text.InputType;
-import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.example.mycloud.R;
 
 
 public class Phone_Activity extends Activity implements OnClickListener{
@@ -101,15 +97,15 @@ public class Phone_Activity extends Activity implements OnClickListener{
 		switch (state) {
 		case TelephonyManager.CALL_STATE_IDLE:
 			U=0;
-			Toast.makeText(getApplicationContext(), "空闲状态！", 1).show();
+			Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 			break;
 		case TelephonyManager.CALL_STATE_OFFHOOK:
 			U=1;
-			Toast.makeText(getApplicationContext(), "正在接听电话！", 1).show();
+			Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 			break;
 		case TelephonyManager.CALL_STATE_RINGING:
 			U=2;
-			Toast.makeText(getApplicationContext(), "正在响铃！", 1).show();
+			Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 		    break;
 
 		default:
@@ -119,10 +115,10 @@ public class Phone_Activity extends Activity implements OnClickListener{
 	}
 	public boolean onCreateOptionsMenu(Menu menu){
 		super.onCreateOptionsMenu(menu);
-		menu.add(0,ITEM0,0,"现在显示按钮1");
-		menu.add(0,ITEM1,0,"现在显示按钮2");
-		menu.add(0,ITEM1,0,"现在显示按钮3");
-		menu.add(0,ITEM1,0,"现在显示按钮4");
+		menu.add(0,ITEM0,0,"钮1");
+		menu.add(0,ITEM1,0,"钮2");
+		menu.add(0,ITEM1,0,"钮3");
+		menu.add(0,ITEM1,0,"钮4");
 		menu.findItem(ITEM1);
 		return true;
 		

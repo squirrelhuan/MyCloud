@@ -1,13 +1,12 @@
 package ccontacts.recentcontact.portal;
 
-import com.example.mycloud.R;
-
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.TabHost;
 
+import com.example.mycloud.R;
 
 import ccontacts.recentcontact.contact.AlwaysContactList;
 import ccontacts.recentcontact.contact.MyContactList;
@@ -26,15 +25,15 @@ public class CalllogTabs extends TabActivity {
 		final TabHost host = getTabHost();
 		
 		host.addTab(host.newTabSpec("myContact")
-					.setIndicator("我的联系人", getResources().getDrawable(R.drawable.mycontact))
+					.setIndicator("", getResources().getDrawable(R.drawable.mycontact))
 					.setContent(new Intent(this, MyContactList.class)));
 		
 		host.addTab(host.newTabSpec("stranger")
-				.setIndicator("陌生人", getResources().getDrawable(R.drawable.strangercontact))
+				.setIndicator("陌锟斤拷锟斤拷", getResources().getDrawable(R.drawable.strangercontact))
 				.setContent(new Intent(this, StrangerContactList.class)));
 		
 		host.addTab(host.newTabSpec("alwaysContact")
-				.setIndicator("经常联系人", getResources().getDrawable(R.drawable.alwayscontact))
+				.setIndicator("锟斤拷锟斤拷锟斤拷系锟斤拷", getResources().getDrawable(R.drawable.alwayscontact))
 				.setContent(new Intent(this, AlwaysContactList.class)));
 	}
 	

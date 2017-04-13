@@ -3,12 +3,7 @@ package ccontacts;
 
 
 
-import java.util.ArrayList;
-
-import com.example.mycloud.R;
-
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,12 +14,14 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.mycloud.R;
+
+import java.util.ArrayList;
 
 public class Contacts_main extends Activity{
 	private AutoCompleteTextView myAutoCompleteTextView;
@@ -82,10 +79,10 @@ public class Contacts_main extends Activity{
 				String number=c.getString(c.getColumnIndexOrThrow(Contacts.People.NUMBER));
 				
 				if(number==null){
-					number="¸ÃÁªÏµÈËÉÐÎ´Ìí¼Ó£¡";
+				number="ÏµÎ´Ó£â€œ;
 				}
 				String name=c.getString(c.getColumnIndexOrThrow(Contacts.People.NAME));
-				myTextView1.setText(c.getString(c.getColumnIndexOrThrow(Contacts.People.NAME))+"µÄµç»°ÊÇ"+number);
+				myTextView1.setText(c.getString(c.getColumnIndexOrThrow(Contacts.People.NAME))+"ï¿½Äµç»°ï¿½ï¿½"+number);
 				
 			}
 		});*/
@@ -111,10 +108,10 @@ public class Contacts_main extends Activity{
 					contactLv.setTag(LISTVIEW_DATA_MORE);
 					initAdapter(contactList);
 					footer_bar.setVisibility(View.GONE);
-					footer_tv.setText("ËÉ¿ª²é¿´¸ü¶à");
+					footer_tv.setText("ï¿½É¿ï¿½ï¿½é¿´ï¿½ï¿½ï¿½ï¿½");
 				}else {
 					footer_bar.setVisibility(View.GONE);
-					footer_tv.setText("¼ÓÔØÍê³É");
+					footer_tv.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 					contactLv.setTag(LISTVIEW_DATA_FULL);
 					contactLv.removeFooterView(footer);
 				}

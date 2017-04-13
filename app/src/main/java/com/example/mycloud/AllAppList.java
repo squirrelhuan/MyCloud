@@ -441,9 +441,8 @@ public class AllAppList extends Activity implements OnClickListener,
 		Intent intent = new Intent(AllAppList.this, AllAppList.class);
 		PendingIntent pendingIntent = PendingIntent.getActivity(
 				AllAppList.this, 0, intent, 0);
-		cloudnotification.setLatestEventInfo(AllAppList.this, "灏忎簯",
-				"", pendingIntent);
-		cloudnotificationManager.notify(1, cloudnotification);
+		//cloudnotification.setLatestEventInfo(AllAppList.this,"","",pendingIntent);
+		//cloudnotificationManager.notify(1, cloudnotification);
 	}
 
 	@Override

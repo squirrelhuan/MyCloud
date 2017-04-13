@@ -1,16 +1,15 @@
 package cells;
 
-import java.util.ArrayList;
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.mycloud.MyAdapter;
 import com.example.mycloud.R;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
+import java.util.ArrayList;
 
 public class list extends Activity{
 public Bundle mListViews;
@@ -19,16 +18,16 @@ protected void onCreate(Bundle savedInstanceState) {
 	// TODO Auto-generated method stub
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.cell_viewpage);
-	//ÊµÀý»¯Ò»¸öLayoutInflater¶ÔÏó
+	//LayoutInflaterï¿½ï¿½ï¿½ï¿½
 	   LayoutInflater inflater = getLayoutInflater();
-	   //Í¨¹ý²½Öè1ÖÐÉùÃ÷µÄ×é¼þIDÀ´»ñÈ¡ViewPager
+	   //1ï¿½IDï¿½È¡ViewPager
 	   ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-	   //ÐÂ½¨Ò»¸öviewlist¶ÔÏóÀ´±£´æ¸÷¸ö·ÖÒ³µÄÄÚÈÝ
+	   //Ò»ï¿½ï¿½viewlistï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	   ArrayList<View> viewList = new ArrayList<View>();
-	   //Í¨¹ýLayoutInflaterÀ´ÊµÀý»¯¸÷¸ö·ÖÒ³
+	   //LayoutInflaterï¿½Ò³
 	   View view1 = inflater.inflate(R.layout.layout1, null);
 	   View view2 = inflater.inflate(R.layout.layout3, null);
-	   //Ìí¼Ó·ÖÒ³µ½listÖÐ
+	   //Ó·ï¿½Ò³ï¿½ï¿½listï¿½
 	   viewList.add(view1);
 	   viewList.add(view2);
 	   viewPager.setAdapter(new MyAdapter(viewList));	

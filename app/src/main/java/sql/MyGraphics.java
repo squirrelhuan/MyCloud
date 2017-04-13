@@ -1,36 +1,29 @@
 package sql;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
-import android.graphics.Path;
-import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 
-public class MyGraphics extends View implements Runnable{	//×Ô¶¨ÒåView
+public class MyGraphics extends View implements Runnable{
 	private Paint paint=null;
 	public MyGraphics(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
-		paint=new Paint();	//¹¹½¨¶ÔÏó
-		new Thread(this).start();	//¿ªÆôÏß³Ì
+		paint=new Paint();	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		new Thread(this).start();
 	}
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-		paint.setAntiAlias(true);	//ÉèÖÃ»­±ÊÎªÎÞ¾â³Ý
-		paint.setColor(Color.BLACK);	//ÉèÖÃ»­±ÊÑÕÉ«
+		paint.setAntiAlias(true);
+		paint.setColor(Color.BLACK);
 		paint.setTextSize((float) 30.0);
-		canvas.drawColor(Color.WHITE);				//°×É«±³¾°
+		canvas.drawColor(Color.WHITE);
 		
 		//canvas.clipRect(100, 100, 360, 400);
 		canvas.clipRect(50, 50, 400, 700);
@@ -44,25 +37,25 @@ public class MyGraphics extends View implements Runnable{	//×Ô¶¨ÒåView
 		paint.setColor(Color.RED);
 		canvas.drawText("Hello Android!", 130, 250, paint);
 		//canvas.drawText("Hello Android!", 130, 600, paint);
-		RectF oval=new RectF();						//RectF¶ÔÏó
-		oval.left=150;								//×ó±ß
-		oval.top=500;								//ÉÏ±ß
-		oval.right=350;								//ÓÒ±ß
-		oval.bottom=600;							//ÏÂ±ß
-		canvas.drawOval(oval, paint);					//»æÖÆÍÖÔ²
+		RectF oval=new RectF();
+		oval.left=150;
+		oval.top=500;
+		oval.right=350;
+		oval.bottom=600;
+		canvas.drawOval(oval, paint);
 
 		
-//		String str="AndroidÓ¦ÓÃ³ÌÐò¿ª·¢";
+//		String str="AndroidÓ¦ï¿½Ã³ï¿½ï¿½ò¿ª·ï¿½";
 //		char[] ch={'H','e','l','l','o',' ','A','n','d','r','o','i','d'};
 //		
 //		canvas.drawText(str, 50, 200, paint);
 //		canvas.drawText(ch, 0, ch.length, 50, 300, paint);
-//		canvas.drawText(str+" APIÏê½â", 0, str.length()+6, 50, 400, paint);
+//		canvas.drawText(str+" APIï¿½ï¿½ï¿½", 0, str.length()+6, 50, 400, paint);
 //		canvas.drawText(str, 7, str.length(), 50, 500, paint);
 	}
 
 	@Override
-	public void run() {									//ÖØÔØrun·½·¨
+	public void run() {
 		// TODO Auto-generated method stub
 		while(!Thread.currentThread().isInterrupted())
 		{
@@ -74,7 +67,7 @@ public class MyGraphics extends View implements Runnable{	//×Ô¶¨ÒåView
 			{
 				Thread.currentThread().interrupt();
 			}
-			postInvalidate();							//¸üÐÂ½çÃæ
+			postInvalidate();
 		}
 	}
 

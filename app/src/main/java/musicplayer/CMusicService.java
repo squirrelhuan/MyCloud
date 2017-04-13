@@ -60,7 +60,7 @@ public class CMusicService extends Service{
 	private static PreferencesService service;
 	private int currentMode = 3; //default sequence playing
 	
-	public static final String[] MODE_DESC = {"µ¥Çú²¥·Å", "ÁÐ±í²¥·Å", "Ëæ»ú²¥·Å", "Ë³Ðò²¥·Å"};
+	public static final String[] MODE_DESC = {"", "", "", ""};
 	
 	public static final int MODE_ONE_LOOP = 0;
 	public static final int MODE_ALL_LOOP = 1;
@@ -126,20 +126,20 @@ public class CMusicService extends Service{
 		
 	}
 	private void notification(){
-		//»ñÈ¡µ½ÏµÍ³µÄnotificationManager  
+		//ï¿½ï¿½È¡ï¿½ï¿½ÏµÍ³ï¿½ï¿½notificationManager  
         notificationManager =  (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);  
-		//ÊµÀý»¯Ò»¸önotification   
-        String tickerText = "ÕýÔÚ²¥·Å";  
+		//Êµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½notification   
+        String tickerText = "ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½";  
         long when = System.currentTimeMillis();  
         Notification notification = new Notification(R.drawable.audio, tickerText, when);  
           
-        //²»ÄÜÊÖ¶¯ÇåÀí  
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½  
         //notification.flags= Notification.FLAG_NO_CLEAR;  
-        //Ìí¼ÓÒôÀÖ  
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         //notification.sound = Uri.parse("/sdcard/haha.mp3");   
           
-        //ÉèÖÃÓÃ»§µã»÷notificationµÄ¶¯×÷   
-        // pendingIntent ÑÓÆÚµÄÒâÍ¼   
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½notificationï¿½Ä¶ï¿½ï¿½ï¿½   
+        // pendingIntent ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Í¼   
         Intent intent0 = new Intent(this,MainActivity.class);  
         Intent intent1 = new Intent(this,CMusicService.class);
        
@@ -147,9 +147,9 @@ public class CMusicService extends Service{
         PendingIntent pendingIntent0  = PendingIntent.getActivity(this, 0, intent0, 0);  
         notification.contentIntent = pendingIntent0;  
 
-		//×Ô¶¨Òå½çÃæ   
+		//ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   
         RemoteViews rv = new RemoteViews(getPackageName(), R.layout.noti_layout);  
-        rv.setTextViewText(R.id.tv_rv, "ÕýÔÚ²¥·Å"+musicList.get(currentMusic).getTitle());  
+        rv.setTextViewText(R.id.tv_rv, "ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½"+musicList.get(currentMusic).getTitle());  
         rv.setProgressBar(R.id.pb_rv, 80, 20, false);  
        
         rv.setImageViewResource(R.id.play, R.drawable.button_play_flag_normal);
@@ -158,7 +158,7 @@ public class CMusicService extends Service{
 
         
         
-        //°Ñ¶¨ÒåµÄnotification ´«µÝ¸ø notificationmanager   
+        //ï¿½Ñ¶ï¿½ï¿½ï¿½ï¿½notification ï¿½ï¿½ï¿½Ý¸ï¿½ notificationmanager   
         notificationManager.notify(0, notification);
 	}
 	
@@ -171,9 +171,9 @@ public class CMusicService extends Service{
 		
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 		notification = new Notification.Builder(this)
-					.setTicker( "CrazyMusicÕýÔÚ²¥·Å"+musicList.get(currentMusic).getTitle())
+					.setTicker( "CrazyMusicï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½"+musicList.get(currentMusic).getTitle())
 					.setSmallIcon(R.drawable.audio)
-					.setContentTitle("ÕýÔÚ²¥·Å")
+					.setContentTitle("ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½")
 					.setContentText(musicList.get(currentMusic).getTitle())
 					.setContentIntent(pendingIntent)
 					.getNotification();		
@@ -283,7 +283,7 @@ public class CMusicService extends Service{
 			break;
 		case MODE_SEQUENCE:
 			if(currentMusic - 1 == 0){
-				Toast.makeText(this, "Ç×£¬ÒÑ¾­µ½¶¥ÁË£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ï¿½×£ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½", Toast.LENGTH_SHORT).show();
 			}else{
 				play(currentMusic + 1, 0);
 			}

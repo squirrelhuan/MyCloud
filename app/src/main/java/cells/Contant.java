@@ -1,11 +1,5 @@
 package cells;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import com.example.mycloud.R;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -13,11 +7,15 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.renderscript.Sampler.Value;
 import android.telephony.TelephonyManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+
+import com.example.mycloud.R;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Contant extends Activity{
 	private int fromId;
@@ -47,24 +45,24 @@ protected void onCreate(Bundle savedInstanceState) {
 		dataactivity_state=Tel.getDataActivity();
 		switch (datastate) {
 		case TelephonyManager.DATA_CONNECTED:
-			DATA="ÒÑÁ¬½Ó";
+			DATA="";
 			break;
 		case TelephonyManager.DATA_CONNECTING:
-			DATA="ÕýÔÚÁ¬½Ó";
+			DATA="";
 			break;
 		case TelephonyManager.DATA_DISCONNECTED:
-			DATA="¶Ï¿ªÁ¬½Ó";
+			DATA="";
 			break;
 		case TelephonyManager.DATA_SUSPENDED:
-			DATA="ÔÝÍ£Á¬½Ó";
+			DATA="";
 			break;
 
-		default:DATA="Á¬½Ó×´Ì¬Î´Öª";
+		default:DATA="Öª";
 			break;
 		}
 		switch (dataactivity_state) {
 		case TelephonyManager.DATA_ACTIVITY_IN:
-			dataactivity="ÕýÔÚ½ÓÊÕÊý¾Ý";
+			dataactivity="";
 			break;
 
 		default:
@@ -106,87 +104,87 @@ protected void onCreate(Bundle savedInstanceState) {
 		simcountryiso=Tel.getSimCountryIso();
 		simstate=Tel.getSimState();
 		simoperator=Tel.getSimOperator();
-		simoperatorname=Tel.getSimOperatorName();//·þÎñÉÌ
-		simserialnumber=Tel.getSimSerialNumber();//»ñÈ¡sim¿¨ÐòÁÐºÅ
-		subscriberid=Tel.getSubscriberId();//»ñÈ¡ÓÃ»§Î¨Ò»ID
-		mailalphatag=Tel.getVoiceMailAlphaTag();//»ñÈ¡ÓïÒôÓÊÏäÊ¶±ðÂë
+		simoperatorname=Tel.getSimOperatorName();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		simserialnumber=Tel.getSimSerialNumber();//ï¿½ï¿½È¡simï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½
+		subscriberid=Tel.getSubscriberId();//ï¿½ï¿½È¡ï¿½Ã»ï¿½Î¨Ò»ID
+		mailalphatag=Tel.getVoiceMailAlphaTag();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½
 		icc=Tel.hasIccCard();
 		network_roaming=Tel.isNetworkRoaming();
-		voiceMailnumber=Tel.getVoiceMailNumber()+"ÓïÒôÓÊ¼þºÅ";
+		voiceMailnumber=Tel.getVoiceMailNumber()+"ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½";
 		
 		switch (state) {
 		case TelephonyManager.CALL_STATE_IDLE:
-			phone="¿ÕÏÐ×´Ì¬£¡";
+			phone="ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½";
 			break;
 		case TelephonyManager.CALL_STATE_OFFHOOK:
-			phone="ÕýÔÚ½ÓÌýµç»°£¡";
+			phone="ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ç»°ï¿½ï¿½";
 			break;
 		case TelephonyManager.CALL_STATE_RINGING:
-			phone="ÕýÔÚÏìÁå£¡";
+			phone="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¡";
 		    break;
 		default:
 			break;}
 		switch (networktype) {
 		case TelephonyManager.NETWORK_TYPE_CDMA:
-			worktype="µ±Ç°ÍøÂçÎªCDMA";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªCDMA";
 			break;
 		case TelephonyManager.NETWORK_TYPE_EDGE:
-			worktype="µ±Ç°ÍøÂçÎªEDGE";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªEDGE";
 			break;
 		case TelephonyManager.NETWORK_TYPE_GPRS:
-			worktype="µ±Ç°ÍøÂçÎªGPRS";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªGPRS";
 			break;
 		case TelephonyManager.NETWORK_TYPE_UMTS:
-			worktype="µ±Ç°ÍøÂçÎªUMTS";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªUMTS";
 			break;
 		case TelephonyManager.NETWORK_TYPE_HSUPA:
-			worktype="µ±Ç°ÍøÂçÎªHSUPA";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªHSUPA";
 			break;
 		case TelephonyManager.NETWORK_TYPE_HSDPA:
-			worktype="µ±Ç°ÍøÂçÎªHSDPA";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªHSDPA";
 			break;
 		case TelephonyManager.NETWORK_TYPE_EHRPD:
-			worktype="µ±Ç°ÍøÂçÎªEHRPD";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªEHRPD";
 			break;
 		case TelephonyManager.NETWORK_TYPE_1xRTT:
-			worktype="µ±Ç°ÍøÂçÎª1xRTT";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Îª1xRTT";
 			break;
 		case TelephonyManager.NETWORK_TYPE_EVDO_0:
-			worktype="µ±Ç°ÍøÂçÎªEVDO_0";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªEVDO_0";
 			break;
 		case TelephonyManager.NETWORK_TYPE_EVDO_A:
-			worktype="µ±Ç°ÍøÂçÎªEVDO_A";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªEVDO_A";
 			break;
 		case TelephonyManager.NETWORK_TYPE_EVDO_B:
-			worktype="µ±Ç°ÍøÂçÎªEVDO_B";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªEVDO_B";
 			break;
 		case TelephonyManager.NETWORK_TYPE_HSPAP:
-			worktype="µ±Ç°ÍøÂçÎªHSPAP";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªHSPAP";
 			break;
 		case TelephonyManager.NETWORK_TYPE_LTE:
-			worktype="µ±Ç°ÍøÂçÎªLTE";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªLTE";
 			break;
 		case TelephonyManager.NETWORK_TYPE_IDEN:
-			worktype="µ±Ç°ÍøÂçÎªIDEN";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªIDEN";
 			break;
 		case TelephonyManager.NETWORK_TYPE_UNKNOWN:
-			worktype="µ±Ç°ÍøÂçÎªUNKNOWN";
+			worktype="ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÎªUNKNOWN";
 			break;
 		default:
 			break;
 		}
 		switch (phtype) {
 		case TelephonyManager.PHONE_TYPE_CDMA:
-			phonetype="µ±Ç°ÊÖ»úÎªCDMAÖÆÊ½";
+			phonetype="ï¿½ï¿½Ç°ï¿½Ö»ï¿½ÎªCDMAï¿½ï¿½Ê½";
 			break;
 		case TelephonyManager.PHONE_TYPE_GSM:
-			phonetype="µ±Ç°ÊÖ»úÎªGSMÖÆÊ½";
+			phonetype="ï¿½ï¿½Ç°ï¿½Ö»ï¿½ÎªGSMï¿½ï¿½Ê½";
 			break;
 		case TelephonyManager.PHONE_TYPE_NONE:
-			phonetype="µ±Ç°ÊÖ»úÎªNONEÖÆÊ½";
+			phonetype="ï¿½ï¿½Ç°ï¿½Ö»ï¿½ÎªNONEï¿½ï¿½Ê½";
 			break;
 		case TelephonyManager.PHONE_TYPE_SIP:
-			phonetype="µ±Ç°ÊÖ»úÎªSIPÖÆÊ½";
+			phonetype="ï¿½ï¿½Ç°ï¿½Ö»ï¿½ÎªSIPï¿½ï¿½Ê½";
 			break;
 
 		default:
@@ -194,19 +192,19 @@ protected void onCreate(Bundle savedInstanceState) {
 		}
 		switch (simstate) {
 		case TelephonyManager.SIM_STATE_ABSENT:
-			sim_state="Ã»²å¿¨";
+			sim_state="Ã»ï¿½å¿¨";
 			break;
 		case TelephonyManager.SIM_STATE_NETWORK_LOCKED:
-			sim_state="Ëø¶¨×´Ì¬£¬ÐèÒªÍøÂçµÄPINÂë½âËø";
+			sim_state="ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½PINï¿½ï¿½ï¿½ï¿½ï¿½";
 			break;
 		case TelephonyManager.SIM_STATE_PIN_REQUIRED:
-			sim_state="Ëø¶¨×´Ì¬£¬ÐèÒªÓÃ»§µÄPINÂë½âËø";
+			sim_state="ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Òªï¿½Ã»ï¿½ï¿½ï¿½PINï¿½ï¿½ï¿½ï¿½ï¿½";
 			break;
 		case TelephonyManager.SIM_STATE_PUK_REQUIRED:
-			sim_state="Ëø¶¨×´Ì¬£¬ÐèÒªÓÃ»§µÄPUKÂë½âËø";
+			sim_state="ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Òªï¿½Ã»ï¿½ï¿½ï¿½PUKï¿½ï¿½ï¿½ï¿½ï¿½";
 			break;
 		case TelephonyManager.SIM_STATE_READY:
-			sim_state="×¼±¸¾ÍÐ÷×´Ì¬";
+			sim_state="×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬";
 			break;
 		case TelephonyManager.SIM_STATE_UNKNOWN:
 			sim_state="Î´Öª×´Ì¬";
@@ -216,14 +214,14 @@ protected void onCreate(Bundle savedInstanceState) {
 			break;
 		}
 		if(icc){
-			icc_state="ICC¿¨´æÔÚ";
+			icc_state="ICCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}else{
-			icc_state="ICC¿¨²»´æÔÚ";
+			icc_state="ICCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		if(network_roaming){
-			networkroaming="ÂþÓÎ×´Ì¬";
+			networkroaming="ï¿½ï¿½ï¿½ï¿½×´Ì¬";
 		}else{
-			networkroaming="·ÇÂþÓÎ×´Ì¬";
+			networkroaming="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬";
 		}
 		for(int i=0;i<26;i++){
 			HashMap<String,Object>item_contant=new HashMap<String,Object>();
@@ -286,31 +284,31 @@ protected void onCreate(Bundle savedInstanceState) {
 		FINGERPRINT,HARDWARE,HOST,ID,MANUFACTURER,PRODUCT,RADIO,SERIAL,BOARD,TAGS,TYPE,USER,CODENAME,INCREMENTAL;
 		long TIME;
 		int SDK_info2;
-		mobile_info=Build.MODEL;//»ñÈ¡ÊÖ»úÐÍºÅ
-		SDK_info=Build.VERSION.SDK;//»ñÈ¡SDK°æ±¾ºÅ
+		mobile_info=Build.MODEL;//ï¿½ï¿½È¡ï¿½Ö»ï¿½ï¿½Íºï¿½
+		SDK_info=Build.VERSION.SDK;//ï¿½ï¿½È¡SDKï¿½æ±¾ï¿½ï¿½
 		SDK_info2=Build.VERSION.SDK_INT;
-		android_info=Build.VERSION.RELEASE;//»ñÈ¡ÏµÍ³°æ±¾
+		android_info=Build.VERSION.RELEASE;//ï¿½ï¿½È¡ÏµÍ³ï¿½æ±¾
 		BOOTLOADER=Build.BOOTLOADER;
 		BRAND=Build.BRAND;
-		CPU_ABI=Build.CPU_ABI;//Ö¸Áî¼¯
-		CPU_ABI2=Build.CPU_ABI2;//Ö¸Áî¼¯
+		CPU_ABI=Build.CPU_ABI;//Ö¸ï¿½î¼¯
+		CPU_ABI2=Build.CPU_ABI2;//Ö¸ï¿½î¼¯
 		DEVICE=Build.DEVICE;
-		DISPLAY=Build.DISPLAY;//ÏÔÊ¾
-		FINGERPRINT=Build.FINGERPRINT;//Î¨Ò»±êÊ¾·û
-		HARDWARE=Build.HARDWARE;//Ó²¼þCPU
+		DISPLAY=Build.DISPLAY;//ï¿½ï¿½Ê¾
+		FINGERPRINT=Build.FINGERPRINT;//Î¨Ò»ï¿½ï¿½Ê¾ï¿½ï¿½
+		HARDWARE=Build.HARDWARE;//Ó²ï¿½ï¿½CPU
 		HOST=Build.HOST;
 		ID=Build.ID;
 		MANUFACTURER=Build.MANUFACTURER;
 		PRODUCT=Build.PRODUCT;
-		RADIO=Build.RADIO;//ÎÞÏßµç°æ±¾ºÅ
-		SERIAL=Build.SERIAL;//Ó²¼þÐòÁÐºÅ
-		BOARD=Build.BOARD;//µ×²ã°æÃû³Æ
+		RADIO=Build.RADIO;//ï¿½ï¿½ï¿½ßµï¿½æ±¾ï¿½ï¿½
+		SERIAL=Build.SERIAL;//Ó²ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½
+		BOARD=Build.BOARD;//ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		TAGS=Build.TAGS;
 		TIME=Build.TIME;
-		TYPE=Build.TYPE;//¹¹½¨ÀàÐÍ
-		USER=Build.USER;//¹¹½¨ÓÃ»§Ãû
-		CODENAME=Build.VERSION.CODENAME;//¿ª·¢´úÂë
-		INCREMENTAL=Build.VERSION.INCREMENTAL;//¹¹½¨ÔöÁ¿
+		TYPE=Build.TYPE;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		USER=Build.USER;//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
+		CODENAME=Build.VERSION.CODENAME;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		INCREMENTAL=Build.VERSION.INCREMENTAL;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 	
 	for(int i=0;i<26;i++){
@@ -398,48 +396,48 @@ else if(re_name.equals("storage")){
 	String data,download,storage,root,DIRECTORY_DCIM,state,sdcardstate="",emulated_state="",remove_state;
 	boolean state_emul,state_remove;
 	f=Environment.getDataDirectory();
-	data="Êý¾ÝÄ¿Â¼£º"+f.getPath().toString();
+	data="ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½"+f.getPath().toString();
 	f=Environment.getDownloadCacheDirectory();
-	download="Êý¾ÝÄ¿Â¼£º"+f.getPath().toString();
+	download="ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½"+f.getPath().toString();
 	f=Environment.getExternalStorageDirectory();
-	storage="Êý¾ÝÄ¿Â¼£º"+f.getPath().toString();
+	storage="ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½"+f.getPath().toString();
 	f=Environment.getRootDirectory();
-	root="root£º"+f.getPath().toString();
+	root="rootï¿½ï¿½"+f.getPath().toString();
 	f=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-	DIRECTORY_DCIM="ÕÕÆ¬£º"+f.getPath().toString();
+	DIRECTORY_DCIM="ï¿½ï¿½Æ¬ï¿½ï¿½"+f.getPath().toString();
 	state=Environment.getExternalStorageState();
 	if(Environment.MEDIA_BAD_REMOVAL.equals(state)){
-		sdcardstate="ÔÚÃ½ÌåÍ£Ö¹Ç°£¬SDcardÒÑ±»Ð¶ÔØ£¡";
+		sdcardstate="ï¿½ï¿½Ã½ï¿½ï¿½Í£Ö¹Ç°ï¿½ï¿½SDcardï¿½Ñ±ï¿½Ð¶ï¿½Ø£ï¿½";
 	}else if(Environment.MEDIA_CHECKING.equals(state)){
-		sdcardstate="´ÅÅÌ¼ì²éÖÐ...";
+		sdcardstate="ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½...";
 	}else if(Environment.MEDIA_MOUNTED.equals(state)){
-		sdcardstate="¿ÉÒÔÕý³£¶ÁÐ´£¡";
+		sdcardstate="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½";
 	}else if(Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)){
-		sdcardstate="Ö»¿ÉÒÔ¶ÁÈ¡£¡";
+		sdcardstate="Ö»ï¿½ï¿½ï¿½Ô¶ï¿½È¡ï¿½ï¿½";
 	}else if(Environment.MEDIA_NOFS.equals(state)){
-		sdcardstate="¿Õ°×£¬»òÕß²»Ö§³ÖµÄÎÄ¼þÏµÍ³£¡";
+		sdcardstate="ï¿½Õ°×£ï¿½ï¿½ï¿½ï¿½ß²ï¿½Ö§ï¿½Öµï¿½ï¿½Ä¼ï¿½ÏµÍ³ï¿½ï¿½";
 	}else if(Environment.MEDIA_REMOVED.equals(state)){
-		sdcardstate="SD¿¨²»´æÔÚ£¡";
+		sdcardstate="SDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½";
 	}else if(Environment.MEDIA_SHARED.equals(state)){
-		sdcardstate="SD¿¨Ã»°²×°£¬»òÕýÍ¨¹ýusbÁ´½Ó×÷Îª´æ´¢Æ÷£¡";
+		sdcardstate="SDï¿½ï¿½Ã»ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½usbï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½æ´¢ï¿½ï¿½ï¿½ï¿½";
 	}else if(Environment.MEDIA_UNKNOWN.equals(state)){
-		sdcardstate="SD¿¨Î´Öª£¡";
+		sdcardstate="SDï¿½ï¿½Î´Öªï¿½ï¿½";
 	}else if(Environment.MEDIA_UNMOUNTABLE.equals(state)){
-		sdcardstate="Ã½Ìå´æÔÚ£¬µ«ÎÄ¼þÏµÍ³Ëð»µ²»ÄÜ°²×°£¡";
+		sdcardstate="Ã½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ÏµÍ³ï¿½ð»µ²ï¿½ï¿½Ü°ï¿½×°ï¿½ï¿½";
 	}else if(Environment.MEDIA_UNMOUNTED.equals(state)){
-		sdcardstate="Ã½Ìå´æÔÚµ«Ã»ÓÐ°²×°£¡";
+		sdcardstate="Ã½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ã»ï¿½Ð°ï¿½×°ï¿½ï¿½";
 	}
 	state_emul=Environment.isExternalStorageEmulated();
 	if(state_emul){
-		emulated_state="Ä£ÄâÍâ²¿´æ´¢Éè±¸£¡";
+		emulated_state="Ä£ï¿½ï¿½ï¿½â²¿ï¿½æ´¢ï¿½è±¸ï¿½ï¿½";
 	}else{
-		emulated_state="·ÇÄ£ÄâÍâ²¿´æ´¢Éè±¸£¡";
+		emulated_state="ï¿½ï¿½Ä£ï¿½ï¿½ï¿½â²¿ï¿½æ´¢ï¿½è±¸ï¿½ï¿½";
 	}
 	state_remove=Environment.isExternalStorageRemovable();
 	if(state_remove){
-		remove_state="Íâ²¿´æ´¢Éè±¸¿ÉÒÔÒÆ³ý£¡";
+		remove_state="ï¿½â²¿ï¿½æ´¢ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½";
 	}else{
-		remove_state="Íâ²¿´æ´¢Éè±¸²»¿ÉÒÔÒÆ³ý£¡";
+		remove_state="ï¿½â²¿ï¿½æ´¢ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½";
 	}
 	for(int i=0;i<12;i++){
 		HashMap<String,Object>item_contant=new HashMap<String,Object>();

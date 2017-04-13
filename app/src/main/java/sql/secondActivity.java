@@ -1,12 +1,11 @@
 package sql;
 
-import com.example.mycloud.R;
-
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.mycloud.R;
 
 
 public class secondActivity extends Activity{
@@ -23,13 +22,13 @@ public class secondActivity extends Activity{
 		String key=intent.getStringExtra("key");
 		//ComponentName componentName=intent.getComponent();
 		String action=intent.getAction();
-		tv.setText("您输入的信息如下：\n");
-		tv.append("用户名："+name+"\n");
-		tv.append("密码："+key);
+		tv.setText("");
+		tv.append(""+name+"\n");
+		tv.append(""+key);
 		//String packageName=componentName.getPackageName();
 		//String className=componentName.getClassName();
-		//tv.setText("包名称："+packageName+"\n");
-		//tv.append("类名称："+className);
+		//tv.setText("锟斤拷锟斤拷锟狡ｏ拷"+packageName+"\n");
+		//tv.append("锟斤拷锟斤拷锟狡ｏ拷"+className);
 				
 		
 	}

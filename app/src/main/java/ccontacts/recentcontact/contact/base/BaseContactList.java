@@ -15,20 +15,10 @@ import android.widget.TextView;
 
 import ccontacts.recentcontact.adapter.CallCursorAdapter;
 
-/**
- * ListActivity基类，实现了每行单击事件和查询数据方法
- * @author Snake
- *
- */
 public class BaseContactList extends ListActivity {
 
 	protected String sort = "DESC";
-	
-	/**
-	 * 根据查询条件或排序方式，进行数据查询并将查询到的结果填充到list的行
-	 * @param where
-	 * @param order
-	 */
+
 	protected void setListAdapter(String where, String order){
 		if (order == null){
 			order = CallLog.Calls.DEFAULT_SORT_ORDER;
@@ -36,7 +26,7 @@ public class BaseContactList extends ListActivity {
 		
 		Cursor cursor = getContentResolver().query(CallLog.Calls.CONTENT_URI,
 				null, where, null, order);
-		//将cursor生命周期交由activity来管理
+		//锟斤拷cursor锟斤拷锟斤拷锟斤拷锟节斤拷锟斤拷activity锟斤拷锟斤拷锟斤拷
 		startManagingCursor(cursor);
 		CallCursorAdapter adapter = new CallCursorAdapter(this,
 				R.layout.recentcontact_callinfo, cursor,

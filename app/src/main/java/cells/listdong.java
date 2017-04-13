@@ -1,13 +1,5 @@
 package cells;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.example.mycloud.MyAdapter;
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -17,6 +9,13 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.mycloud.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class listdong extends Activity{
 public Bundle mListViews;
 private List<? extends Map<String, ?>> herolist_wu;
@@ -25,13 +24,13 @@ protected void onCreate(Bundle savedInstanceState) {
 	// TODO Auto-generated method stub
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.cell_viewpage);
-	//ÊµÀý»¯Ò»¸öLayoutInflater¶ÔÏó
+	//LayoutInflaterï¿½ï¿½ï¿½ï¿½
 	   LayoutInflater inflater = getLayoutInflater();
-	   //Í¨¹ý²½Öè1ÖÐÉùÃ÷µÄ×é¼þIDÀ´»ñÈ¡ViewPager
+	   //viewPager
 	   ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-	   //ÐÂ½¨Ò»¸öviewlist¶ÔÏóÀ´±£´æ¸÷¸ö·ÖÒ³µÄÄÚÈÝ
+	   //viewlistï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	   ArrayList<View> viewList = new ArrayList<View>();
-	   //Í¨¹ýLayoutInflaterÀ´ÊµÀý»¯¸÷¸ö·ÖÒ³
+	   //LayoutInflaterï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³
 	   View view1 = inflater.inflate(R.layout.layout2, null);
 	   View view2 = inflater.inflate(R.layout.layout2, null);
 	   ListView listview1 = (ListView) view1.findViewById(R.id.list);
@@ -48,7 +47,7 @@ protected void onCreate(Bundle savedInstanceState) {
 			    new int[]{R.id.img, R.id.name});
 	   listview1.setAdapter(simpleAdapter_Wu);
 
-	   //Ìí¼Ó·ÖÒ³µ½listÖÐ
+	   //listï¿½ï¿½
 	   viewList.add(view1);
 	   viewList.add(view2);
 	   viewPager.setAdapter(new MyAdapter(viewList));	
@@ -63,7 +62,7 @@ public class MyAdapter extends PagerAdapter{
     }
 
     @Override
-    public int getCount() {                                                                 //»ñµÃsize
+    public int getCount() {                                                                 //ï¿½ï¿½ï¿½size
         // TODO Auto-generated method stub
         return viewLists.size();
     }
@@ -75,13 +74,13 @@ public class MyAdapter extends PagerAdapter{
     }
     
     @Override
-    public void destroyItem(View view, int position, Object object)                       //Ïú»ÙItem
+    public void destroyItem(View view, int position, Object object)                       //ï¿½ï¿½ï¿½ï¿½Item
     {
         ((ViewPager) view).removeView(viewLists.get(position));
     }
     
     @Override
-    public Object instantiateItem(View view, int position)                                //ÊµÀý»¯Item
+    public Object instantiateItem(View view, int position)                                //Êµï¿½ï¿½ï¿½ï¿½Item
     {
         ((ViewPager) view).addView(viewLists.get(position), 0);
         return viewLists.get(position);

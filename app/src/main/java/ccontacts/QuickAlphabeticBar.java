@@ -1,44 +1,35 @@
 package ccontacts;  
  
-import java.util.HashMap;  
-
-
-
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
+import android.os.Handler;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.mycloud.R;
 
- import android.app.Activity;  
-import android.content.Context;  
-import android.graphics.Canvas;  
-import android.graphics.Color;  
-import android.graphics.Paint;  
-import android.graphics.Typeface;  
-import android.os.Handler;  
-import android.util.AttributeSet;  
-import android.view.MotionEvent;  
-import android.view.View;  
-import android.widget.ImageButton;  
-import android.widget.ListView;  
-import android.widget.TextView;  
+import java.util.HashMap;
   
   
-  
-/** 
-  * ×ÖÄ¸Ë÷ÒýÌõ 
-  *  
-  * @author Administrator 
-  *  
-  */  
+
 public class QuickAlphabeticBar extends ImageButton {  
-     private TextView mDialogText; // ÖÐ¼äÏÔÊ¾×ÖÄ¸µÄÎÄ±¾¿ò  
-     private Handler mHandler; // ´¦ÀíUIµÄ¾ä±ú  
-     private ListView mList; // ÁÐ±í  
-    private float mHight; // ¸ß¶È  
-    // ×ÖÄ¸ÁÐ±íË÷Òý  
+     private TextView mDialogText; //ï¿½ï¿½
+     private Handler mHandler; //
+     private ListView mList; //
+    private float mHight; // ï¿½ß¶ï¿½  
+    // ï¿½ï¿½Ä¸ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½  
    private String[] letters = new String[] { "#", "A", "B", "C", "D", "E",  
            "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",  
             "S", "T", "U", "V", "W", "X", "Y", "Z" };  
-     // ×ÖÄ¸Ë÷Òý¹þÏ£±í  
+     // ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½  
      private HashMap<String, Integer> alphaIndexer;  
      Paint paint = new Paint();  
      boolean showBkg = false;  
@@ -56,24 +47,24 @@ public class QuickAlphabeticBar extends ImageButton {
         super(context, attrs);  
     }  
    
-     // ³õÊ¼»¯  
+     // ï¿½ï¿½Ê¼ï¿½ï¿½  
      public void init(Activity ctx) {  
          mDialogText = (TextView) ctx.findViewById(R.id.fast_position);  
          mDialogText.setVisibility(View.INVISIBLE);  
          mHandler = new Handler();  
     }  
    
-   // ÉèÖÃÐèÒªË÷ÒýµÄÁÐ±í  
+   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½  
     public void setListView(ListView mList) {  
          this.mList = mList;  
     }  
  
-    // ÉèÖÃ×ÖÄ¸Ë÷Òý¹þÏ£±í  
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½  
      public void setAlphaIndexer(HashMap<String, Integer> alphaIndexer) {  
          this.alphaIndexer = alphaIndexer;  
     }  
    
-    // ÉèÖÃ×ÖÄ¸Ë÷ÒýÌõµÄ¸ß¶È  
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß¶ï¿½  
     public void setHight(float mHight) {  
         this.mHight = mHight;  
    }  
@@ -83,14 +74,14 @@ public class QuickAlphabeticBar extends ImageButton {
          int act = event.getAction();  
          float y = event.getY();  
          final int oldChoose = choose;  
-         // ¼ÆËãÊÖÖ¸Î»ÖÃ£¬ÕÒµ½¶ÔÓ¦µÄ¶Î£¬ÈÃmListÒÆ¶¯¶Î¿ªÍ·µÄÎ»ÖÃÉÏ  
+         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸Î»ï¿½Ã£ï¿½ï¿½Òµï¿½ï¿½ï¿½Ó¦ï¿½Ä¶Î£ï¿½ï¿½ï¿½mListï¿½Æ¶ï¿½ï¿½Î¿ï¿½Í·ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½  
          int selectIndex = (int) (y / (mHight / letters.length));  
    
-        if (selectIndex > -1 && selectIndex < letters.length) { // ·ÀÖ¹Ô½½ç  
+        if (selectIndex > -1 && selectIndex < letters.length) { // ï¿½ï¿½Ö¹Ô½ï¿½ï¿½  
              String key = letters[selectIndex];  
             if (alphaIndexer.containsKey(key)) {  
                  int pos = alphaIndexer.get(key);  
-                 if (mList.getHeaderViewsCount() > 0) { // ·ÀÖ¹ListViewÓÐ±êÌâÀ¸,±¾ÀýÖÐÃ»ÓÐ  
+                 if (mList.getHeaderViewsCount() > 0) { // ï¿½ï¿½Ö¹ListViewï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½  
                      this.mList.setSelectionFromTop(  
                              pos + mList.getHeaderViewsCount(), 0);  
                  } else {  
@@ -156,17 +147,17 @@ public class QuickAlphabeticBar extends ImageButton {
          super.onDraw(canvas);  
          int height = getHeight();  
          int width = getWidth();  
-         int sigleHeight = height / letters.length; // µ¥¸ö×ÖÄ¸Õ¼µÄ¸ß¶È  
+         int sigleHeight = height / letters.length; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸Õ¼ï¿½Ä¸ß¶ï¿½  
          for (int i = 0; i < letters.length; i++) {  
              paint.setColor(Color.WHITE);  
              paint.setTextSize(20);  
              paint.setTypeface(Typeface.DEFAULT_BOLD);  
             paint.setAntiAlias(true);  
             if (i == choose) {   
-                 paint.setColor(Color.parseColor("#00BFFF")); // »¬¶¯Ê±°´ÏÂ×ÖÄ¸ÑÕÉ«  
+                 paint.setColor(Color.parseColor("#00BFFF")); // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½É«  
                  paint.setFakeBoldText(true);  
              }  
-            // »æ»­µÄÎ»ÖÃ  
+            // ï¿½æ»­ï¿½ï¿½Î»ï¿½ï¿½  
              float xPos = width / 2 - paint.measureText(letters[i]) / 2;  
             float yPos = sigleHeight * i + sigleHeight;  
             canvas.drawText(letters[i], xPos, yPos, paint);  

@@ -1,43 +1,29 @@
 package ccontacts;  
  
- import java.util.ArrayList;  
-import java.util.HashMap;  
-import java.util.List;  
-import java.util.Map;  
-  
-
-
- import android.app.Activity;  
-import android.content.AsyncQueryHandler;  
-import android.content.ContentResolver;  
-import android.database.Cursor;  
-import android.net.Uri;  
-import android.os.Bundle;  
-import android.provider.ContactsContract;  
-import android.view.View;  
-import android.widget.ListView;  
-   
-
-
+ import android.app.Activity;
+import android.content.AsyncQueryHandler;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.View;
+import android.widget.ListView;
 
 import com.example.mycloud.R;
- import ccontacts.ContactListAdapter;  
-import ccontacts.ContactBean;  
-import ccontacts.QuickAlphabeticBar;  
-   
-/** 
-  * ÁªÏµÈËÁÐ±í 
- *  
- * @author Administrator 
-  *  
- */  
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class ContactListActivity extends Activity {  
  
     private ContactListAdapter adapter;  
     private ListView contactList;  
     private List<ContactBean> list;  
-    private AsyncQueryHandler asyncQueryHandler; // Òì²½²éÑ¯Êý¾Ý¿âÀà¶ÔÏó  
-    private QuickAlphabeticBar alphabeticBar; // ¿ìËÙË÷ÒýÌõ  
+    private AsyncQueryHandler asyncQueryHandler; // ï¿½ì²½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+    private QuickAlphabeticBar alphabeticBar; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
   
     private Map<Integer, ContactBean> contactIdMap = null;  
    
@@ -48,25 +34,25 @@ public class ContactListActivity extends Activity {
          contactList = (ListView) findViewById(R.id.contact_list);  
          alphabeticBar = (QuickAlphabeticBar) findViewById(R.id.fast_scroller);  
    
-        // ÊµÀý»¯  
+        // Êµï¿½ï¿½ï¿½ï¿½  
         asyncQueryHandler = new MyAsyncQueryHandler(getContentResolver());  
         init();  
    
      }  
   
     /** 
-     * ³õÊ¼»¯Êý¾Ý¿â²éÑ¯²ÎÊý 
+     * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ 
      */  
     private void init() {  
-         Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI; // ÁªÏµÈËUri£»  
-         // ²éÑ¯µÄ×Ö¶Î  
+         Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI; // ï¿½ï¿½Ïµï¿½ï¿½Uriï¿½ï¿½  
+         // ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ö¶ï¿½  
        String[] projection = { ContactsContract.CommonDataKinds.Phone._ID,  
                  ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,  
                 ContactsContract.CommonDataKinds.Phone.DATA1, "sort_key",  
                 ContactsContract.CommonDataKinds.Phone.CONTACT_ID,  
                  ContactsContract.CommonDataKinds.Phone.PHOTO_ID,  
                ContactsContract.CommonDataKinds.Phone.LOOKUP_KEY };  
-        // °´ÕÕsort_keyÉýÐò²éÔƒ  
+        // ï¿½ï¿½ï¿½ï¿½sort_keyï¿½ï¿½ï¿½ï¿½ï¿½Ôƒ  
          asyncQueryHandler.startQuery(0, null, uri, projection, null, null,  
                  "sort_key COLLATE LOCALIZED asc");  
    
@@ -88,7 +74,7 @@ public class ContactListActivity extends Activity {
             if (cursor != null && cursor.getCount() > 0) {  
                  contactIdMap = new HashMap<Integer, ContactBean>();  
                 list = new ArrayList<ContactBean>();  
-                cursor.moveToFirst(); // ÓÎ±êÒÆ¶¯µ½µÚÒ»Ïî  
+                cursor.moveToFirst(); // ï¿½Î±ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½  
                 for (int i = 0; i < cursor.getCount(); i++) {  
                     cursor.moveToPosition(i);  
                     String name = cursor.getString(1);  
@@ -99,9 +85,9 @@ public class ContactListActivity extends Activity {
                     String lookUpKey = cursor.getString(6);  
  
                     if (contactIdMap.containsKey(contactId)) {  
-                         // ÎÞ²Ù×÷  
+                         // ï¿½Þ²ï¿½ï¿½ï¿½  
                      } else {  
-                        // ´´½¨ÁªÏµÈË¶ÔÏó  
+                        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ë¶ï¿½ï¿½ï¿½  
                          ContactBean contact = new ContactBean();  
                          contact.setDesplayName(name);  
                          contact.setPhoneNum(number);  

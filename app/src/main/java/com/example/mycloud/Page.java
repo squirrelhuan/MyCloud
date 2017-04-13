@@ -1,56 +1,22 @@
 package com.example.mycloud;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-
-
-
-
-
-
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
+import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Adapter;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.DisplayMetrics;
-import android.graphics.Matrix;
 import android.widget.ImageView;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+import android.widget.TextView;
 
-
-
-
-
-
-import java.util.List;
 import java.util.ArrayList;
-
-
-
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.TextView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.DisplayMetrics;
-import android.graphics.Matrix;
-import android.widget.ImageView;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+import java.util.List;
 
 public class Page extends Activity {
 
@@ -93,7 +59,7 @@ public class Page extends Activity {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             
             @Override
-            public void onPageSelected(int arg0) {                                 //当滑动式，顶部的imageView是通过animation缓慢的滑动
+            public void onPageSelected(int arg0) {//imageView通animation
                 // TODO Auto-generated method stub
                 switch (arg0)
                 {
@@ -198,7 +164,7 @@ public class Page extends Activity {
         
         offSet = (dm.widthPixels - 3 * bmWidth) / 6;
         matrix.setTranslate(offSet, 0);
-        //imageView.setImageMatrix(matrix);                                             //需要iamgeView的scaleType为matrix
+        //imageView.setImageMatrix(matrix);                                             //锟斤拷要iamgeView锟斤拷scaleType为matrix
         currentItem = 0;
     }
 }

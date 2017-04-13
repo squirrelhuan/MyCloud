@@ -1,9 +1,5 @@
 package ccontacts.recentcontact.adapter;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import com.example.mycloud.R;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,13 +11,13 @@ import android.widget.ImageView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-/**
- * ¶ÁÈ¡Êý¾Ýºó£¬½«Êý¾Ý¿âÌî³äµ½Ö¸¶¨ºÃµÄÐÐÖÐ
- * @author Snake
- *
- */
+import com.example.mycloud.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CallCursorAdapter extends ResourceCursorAdapter {
-	final int DAY = 1440;				//Ò»ÌìµÄ·ÖÖÓÖµ
+	final int DAY = 1440;				//Ò»ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Öµ
 	private int[] mTo;
 	private String[] mOriginalFrom;
 
@@ -33,7 +29,7 @@ public class CallCursorAdapter extends ResourceCursorAdapter {
 	}
 	
 	/**
-	 * °ó¶¨Êý¾Ýµ½ÊÓÍ¼ÖÐ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 	 */
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
@@ -50,30 +46,30 @@ public class CallCursorAdapter extends ResourceCursorAdapter {
 					long duration = (newTime - callTime) / (1000*60);
 					
 					if (duration < 60){
-						value = duration+"·ÖÖÓÇ°";
+						value = duration+"ï¿½ï¿½ï¿½ï¿½Ç°";
 					}else if (duration >= 60 && duration < DAY){
 						value = (duration/60)+"Ð¡Ê±Ç°";
 					}else if (duration >= DAY && duration < DAY*2){
-						value = "×òÌì";
+						value = "ï¿½ï¿½ï¿½ï¿½";
 					}else if (duration >= DAY*2 && duration < DAY*3){
-						value = "Ç°Ìì";
+						value = "Ç°ï¿½ï¿½";
 					}else if (duration >= DAY*7){
-						SimpleDateFormat sdf = new SimpleDateFormat("MÔÂddÈÕ");
+						SimpleDateFormat sdf = new SimpleDateFormat("Mï¿½ï¿½ddï¿½ï¿½");
 						value = sdf.format(new Date(callTime));
 					}else{
-						value = (duration/DAY)+"ÌìÇ°";
+						value = (duration/DAY)+"ï¿½ï¿½Ç°";
 					}
 				}else if ("type".equals(mOriginalFrom[i])){
 					int type = Integer.parseInt(value);
 					if (CallLog.Calls.INCOMING_TYPE == type){
-						view.setBackgroundResource(R.color.incoming);	//¸ü¸ÄÐÐÑÕÉ«
-						value = "ÒÑ½Óµç»°";
+						view.setBackgroundResource(R.color.incoming);	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+						value = "ï¿½Ñ½Óµç»°";
 					}else if (CallLog.Calls.OUTGOING_TYPE == type){
 						view.setBackgroundResource(R.color.outgoing);
-						value = "ÒÑ²¦µç»°";
+						value = "ï¿½Ñ²ï¿½ï¿½ç»°";
 					}else if (CallLog.Calls.MISSED_TYPE == type){
 						view.setBackgroundResource(R.color.missed);
-						value = "Î´½Óµç»°";
+						value = "Î´ï¿½Óµç»°";
 					}
 				}else if ("name".equals(mOriginalFrom[i])){
 					if (null == value || "".equals(value)){
@@ -89,7 +85,7 @@ public class CallCursorAdapter extends ResourceCursorAdapter {
 		final TextView mNumber = (TextView)view.findViewById(R.id.TextNumber);
 		ImageView mailButton = (ImageView)view.findViewById(R.id.MailButton);
 		if (mailButton != null){
-			//Îªµã»÷¶ÌÐÅÍ¼±êÌí¼Ó´¥·¢ÊÂ¼þ£¬Ê¹Æä½øÈë·¢ËÍ¶ÌÐÅ½çÃæ
+			//Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ë·¢ï¿½Í¶ï¿½ï¿½Å½ï¿½ï¿½ï¿½
 			mailButton.setOnClickListener(new OnClickListener(){
 				public void onClick(View v) {
 					Uri smsToUri = Uri.parse("smsto://"+mNumber.getText());

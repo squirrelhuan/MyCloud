@@ -1,21 +1,7 @@
 package userscenter;
 
-import java.io.File;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
-import java.util.prefs.Preferences;
-
-import service.PreferencesService;
-import service.dbopenhelper;
-import service.fileservice;
-
-import com.example.mycloud.R;
-import com.example.mycloud.R.color;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -30,10 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Parcelable;
 import android.provider.MediaStore;
-import android.text.AlteredCharSequence;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -43,6 +26,15 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mycloud.R;
+
+import java.io.File;
+import java.util.Calendar;
+import java.util.Map;
+
+import service.PreferencesService;
+import service.fileservice;
 
 public class MainActivity extends Activity implements OnClickListener{
 	SQLiteDatabase db = null;
@@ -55,7 +47,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	private String filename,filecontent;
 	private TextView user_name,user_content;
 	private String filepath = "/sdcard/users_image.jpg";
-	 final String[] photo = new String[] { "从图库选择", "拍照上传"};
+	 final String[] photo = new String[] { "", ""};
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 	// TODO Auto-generated method stub
@@ -105,15 +97,13 @@ public void show(){try {
 	// TODO Auto-generated method stub
 	insertData(db, title.getText().toString(), content
 			.getText().toString());
-	Cursor cursor = db.rawQuery("select * from mydb", null);// 查询的结果集
-															// ---类似ResultSet
+	Cursor cursor = db.rawQuery("select * from mydb", null);
 	inflateCursor(cursor);
 } catch (Exception e) {
 	db.execSQL("create table mydb(_id integer primary key autoincrement,title varchar(255),content varchar(255))");
 	insertData(db, title.getText().toString(), content
 			.getText().toString());
-	Cursor cursor = db.rawQuery("select * from mydb", null);// 查询的结果集
-															// ---类似ResultSet
+	Cursor cursor = db.rawQuery("select * from mydb", null);
 	inflateCursor(cursor);
 }}
 public void insertData(SQLiteDatabase db, String title, String content) {
@@ -148,7 +138,7 @@ public void getimage(){
     File file = new File(filepath);
     if (file.exists()) {
             getbitmap = BitmapFactory.decodeFile(filepath);
-            //将图片显示到ImageView中
+            //ImageView锟斤拷
             ic_users.setImageBitmap(getbitmap);
     }
 }
@@ -158,7 +148,7 @@ public void onClick(View v) {
 	switch (v.getId()) {
 	case R.id.ic_users:
 		AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
-		ad.setTitle("选择头像路径");
+		ad.setTitle("");
 		ad.setIcon(R.drawable.audio);
 		ad .setItems(photo, new DialogInterface.OnClickListener() {	 
 		     @Override
@@ -169,7 +159,7 @@ public void onClick(View v) {
 		    	 
 		     }
 		    });
-		ad.show();// 显示对话框
+		ad.show();
 		
 		break;
 	case R.id.button_read:
@@ -194,9 +184,9 @@ public void storage(){
 		service.save(filename,filecontent);
 		user_name.setText(filename);
 		user_content.setText(filecontent);
-	    Toast.makeText(getApplicationContext(), "保存成功", 1).show();
+	    Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 	} catch (Exception e) {
-	    Toast.makeText(getApplicationContext(), "保存失败", 1).show();
+	    Toast.makeText(getApplicationContext(), "",  Toast.LENGTH_SHORT).show();
 
 		e.printStackTrace();
 	}
@@ -210,38 +200,37 @@ public void readuser(){
 		service.readfile(filename);
 		user_name.setText(filename);
 		user_content.setText(filecontent);
-	    Toast.makeText(getApplicationContext(), "读取success", 1).show();
+	    Toast.makeText(getApplicationContext(), "锟斤拷取success",  Toast.LENGTH_SHORT).show();
 	} catch (Exception e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
-		Toast.makeText(getApplicationContext(), "读取fail", 1).show();
+		Toast.makeText(getApplicationContext(), "锟斤拷取fail",  Toast.LENGTH_SHORT).show();
 	}
 	}
 public void privateparametersave(){
 	String username=title.getText().toString();
     String usercontent=content.getText().toString();
 	service.save(username,usercontent);
-	Toast.makeText(getApplicationContext(), "OK", 1).show();
+	Toast.makeText(getApplicationContext(), "OK",  Toast.LENGTH_SHORT).show();
 }
 
 public void selectpicture() {  
     Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT);  
-    innerIntent.putExtra("crop", "true");// 才能出剪辑的小方框，不然没有剪辑功能，只能选取图片  
-    innerIntent.putExtra("aspectX", 1); // 出现放大和缩小  
-    innerIntent.setType("image/*"); // 查看类型 详细的类型在 com.google.android.mms.ContentType   
+    innerIntent.putExtra("crop", "true");
+    innerIntent.putExtra("aspectX", 1);
+    innerIntent.setType("image/*"); //com.google.android.mms.ContentType
       
-    tempFile=new File("/sdcard/ll1x/"+Calendar.getInstance().getTimeInMillis()+".jpg"); // 以时间秒为文件名  
-    File temp = new File("/sdcard/ll1x/");//自已项目 文件夹  
+    tempFile=new File("/sdcard/ll1x/"+Calendar.getInstance().getTimeInMillis()+".jpg");
+    File temp = new File("/sdcard/ll1x/");
     if (!temp.exists()) {  
         temp.mkdir();  
     }  
-    innerIntent.putExtra("output", Uri.fromFile(tempFile));  // 专入目标文件     
-    innerIntent.putExtra("outputFormat", "JPEG"); //输入文件格式    
+    innerIntent.putExtra("output", Uri.fromFile(tempFile));
+    innerIntent.putExtra("outputFormat", "JPEG");
       
-    Intent wrapperIntent = Intent.createChooser(innerIntent, "先择图片"); //开始 并设置标题  
-    startActivityForResult(wrapperIntent, 1); // 设返回 码为 1  onActivityResult 中的 requestCode 对应  
-}  
-//调用成功反回方法  
+    Intent wrapperIntent = Intent.createChooser(innerIntent, "");
+    startActivityForResult(wrapperIntent, 1);
+}
 @Override  
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
     super.onActivityResult(requestCode, resultCode, data);  

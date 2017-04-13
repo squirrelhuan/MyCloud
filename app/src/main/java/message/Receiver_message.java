@@ -1,15 +1,10 @@
 package message;
 
-import com.example.mycloud.AllAppList;
-import com.example.mycloud.R.string;
-
-import message.firstActivity;
-import android.content.BroadcastReceiver;  
-import android.content.ContentValues;
-import android.content.Context;  
-import android.content.Intent;  
-import android.os.Bundle;  
-import android.telephony.SmsMessage;  
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.telephony.SmsMessage;
 import android.widget.Toast;  
   
 public class Receiver_message extends BroadcastReceiver {  
@@ -37,12 +32,12 @@ public class Receiver_message extends BroadcastReceiver {
                 }  
                   
                 for(SmsMessage curMsg:msg){  
-                    sb.append("You got the message From:【");  
+                    sb.append("You got the message From:");
                     sb.append(curMsg.getDisplayOriginatingAddress());  
-                    sb.append("】Content：");  
+                    sb.append("Content");
                     sb.append(curMsg.getDisplayMessageBody());       
                 }  
-                Toast.makeText(arg0,   
+                Toast.makeText(arg0,
                         "Got The Message:" + sb.toString(),  
                         Toast.LENGTH_SHORT).show();  
                
@@ -55,7 +50,7 @@ public class Receiver_message extends BroadcastReceiver {
        // a.comeforomsms("laixin",zh_sms_tv);
         
     }  
-  //回调接口  
+  //
     public interface MessageListener {  
         public void onReceived(String message);  
     }  

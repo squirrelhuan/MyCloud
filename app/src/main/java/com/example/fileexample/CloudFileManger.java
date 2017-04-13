@@ -1,11 +1,5 @@
 package com.example.fileexample;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import userscenter.MainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -27,13 +21,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import ccontacts.ContactListActivity;
-import cells.Contant;
-import cells.listdong.MyAdapter;
 
-import com.example.mycloud.AllAppList;
 import com.example.mycloud.R;
-import com.example.mycloud.R.string;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CloudFileManger extends Activity implements OnItemClickListener{
 	public Bundle mListViews;
@@ -78,13 +72,13 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
 		String[] names2=res.getStringArray(R.array.main_setting_02);
 		String[] names3=res.getStringArray(R.array.main_setting_03);
 		
-		//ÊµÀý»¯Ò»¸öLayoutInflater¶ÔÏó
+		//LayoutInflaterï¿½ï¿½ï¿½ï¿½
 		   LayoutInflater inflater = getLayoutInflater();
-		   //Í¨¹ý²½Öè1ÖÐÉùÃ÷µÄ×é¼þIDÀ´»ñÈ¡ViewPager
+		   //ViewPager
 		   final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-		   //ÐÂ½¨Ò»¸öviewlist¶ÔÏóÀ´±£´æ¸÷¸ö·ÖÒ³µÄÄÚÈÝ
+		   //viewlistÒ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		   ArrayList<View> viewList = new ArrayList<View>();
-		   //Í¨¹ýLayoutInflaterÀ´ÊµÀý»¯¸÷¸ö·ÖÒ³
+		   //LayoutInflaterÒ³
 		   imageView = (ImageView) findViewById (R.id.cursor);
 	        textView1 = (TextView) findViewById (R.id.textView1);
 	        textView2 = (TextView) findViewById (R.id.textView2);
@@ -92,14 +86,14 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
 		   int i=1;
 		   if(re_name.equals("main_setting")){
 			   i=0;  
-			   textView1.setText("³£¹æ");
-			   textView2.setText("ÉùÒô");
-			   textView3.setText("ÏÔÊ¾");
+			   textView1.setText("ï¿½ï¿½ï¿½ï¿½");
+			   textView2.setText("ï¿½ï¿½ï¿½ï¿½");
+			   textView3.setText("ï¿½ï¿½Ê¾");
 		   }else if(re_name.equals("desktop_setting")){
 			   i=0;
-			   textView1.setText("ÔÚÏßÖ÷Ìâ");
-			   textView2.setText("±¾µØÖ÷Ìâ");
-			   textView3.setText("¸öÐÔ»ì´î");
+			   textView1.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+			   textView2.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+			   textView3.setText("ï¿½ï¿½ï¿½Ô»ï¿½ï¿½");
 		   }
 		   View view0 = inflater.inflate(layoutId[0][i+1], null);
 		   View view1 = inflater.inflate(layoutId[0][i+1], null);
@@ -161,7 +155,7 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
 		   listview1.setAdapter(simpleAdapter_2);
 		   listview2.setAdapter(simpleAdapter_3);
 
-		   //Ìí¼Ó·ÖÒ³µ½listÖÐ
+		   //ï¿½ï¿½Ó·ï¿½Ò³ï¿½ï¿½listï¿½ï¿½
 		   viewList.add(view0);
 		   viewList.add(view1);
 		   viewList.add(view2);
@@ -174,7 +168,7 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
 	        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 	            
 	            @Override
-	            public void onPageSelected(int arg0) {                                 //µ±»¬¶¯Ê½£¬¶¥²¿µÄimageViewÊÇÍ¨¹ýanimation»ºÂýµÄ»¬¶¯
+	            public void onPageSelected(int arg0) {                                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageViewï¿½ï¿½Í¨ï¿½ï¿½animationï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 	                // TODO Auto-generated method stub
 	                switch (arg0)
 	                {
@@ -273,7 +267,7 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
         
         offSet = (dm.widthPixels - 3 * bmWidth) / 6;
         matrix.setTranslate(offSet, 0);
-        imageView.setImageMatrix(matrix);                                             //ÐèÒªiamgeViewµÄscaleTypeÎªmatrix
+        imageView.setImageMatrix(matrix);                                             //ï¿½ï¿½ÒªiamgeViewï¿½ï¿½scaleTypeÎªmatrix
         currentItem = 0;
     }
 	public class MyAdapter extends PagerAdapter{
@@ -286,7 +280,7 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
 	    }
 
 	    @Override
-	    public int getCount() {                                                                 //»ñµÃsize
+	    public int getCount() {                                                                 //ï¿½ï¿½ï¿½size
 	        // TODO Auto-generated method stub
 	        return viewLists.size();
 	    }
@@ -298,13 +292,13 @@ public class CloudFileManger extends Activity implements OnItemClickListener{
 	    }
 	    
 	    @Override
-	    public void destroyItem(View view, int position, Object object)                       //Ïú»ÙItem
+	    public void destroyItem(View view, int position, Object object)                       //ï¿½ï¿½ï¿½ï¿½Item
 	    {
 	        ((ViewPager) view).removeView(viewLists.get(position));
 	    }
 	    
 	    @Override
-	    public Object instantiateItem(View view, int position)                                //ÊµÀý»¯Item
+	    public Object instantiateItem(View view, int position)                                //Êµï¿½ï¿½ï¿½ï¿½Item
 	    {
 	        ((ViewPager) view).addView(viewLists.get(position), 0);
 	        return viewLists.get(position);

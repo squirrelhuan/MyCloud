@@ -2,13 +2,10 @@ package message;
 
 
 
-import java.util.List;
-
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -24,8 +21,10 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.IntentFilter;
-import message.Receiver_message;
+
+import com.example.mycloud.R;
+
+import java.util.List;
 
 
 public class firstActivity extends Activity implements OnClickListener {
@@ -80,10 +79,7 @@ public void onCreate(Bundle savedInstanceState) {
     catch(Exception e) {
     }    
     ContentValues cv=new ContentValues();
-    //cv.put(NAME, "ÕÅÈý");
-    //cv.put(AGE, "18");
-    //cv.put(HOME, "±±¾©");
-   // mydb.insert(TABLE_NAME, null, cv);
+
   
     showData(0,"",""); 
     mydb.close();
@@ -96,19 +92,14 @@ public void onCreate(Bundle savedInstanceState) {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 	super.onStart();
-	//Éú³É¹ã²¥´¦Àí  
     mSMSBroadcastReceiver = new Receiver_message();
-  //ÊµÀý»¯¹ýÂËÆ÷²¢ÉèÖÃÒª¹ýÂËµÄ¹ã²¥  
     IntentFilter intentFilter = new IntentFilter(ACTION);  
     intentFilter.setPriority(Integer.MAX_VALUE);
 	this.registerReceiver(mSMSBroadcastReceiver, intentFilter);  
 	  
     mSMSBroadcastReceiver.setOnReceivedMessageListener(new Receiver_message.MessageListener() {  
         @Override  
-        public void onReceived(String message) {  
-
-        	//contanct_name.setText(message);
-         
+        public void onReceived(String message) {
         	mydb=openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
     		ContentValues cv=new ContentValues();
     		cv.put(NAME, message);
@@ -117,14 +108,12 @@ public void onCreate(Bundle savedInstanceState) {
     		showData(0,"",""); 
     		mydb.close();
         }});
-       
-		
 	}
 
 public void showData(int v,String contact_name,String contact_content)
 {
-   // editText.setText("Êý¾Ý¿âÄÚÈÝ£º\n");
-   // editText.append("ÐÕÃû\t\tÄêÁä\t\t¼®¹á\n");
+   // editText.setText("ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ý£ï¿½\n");
+   // editText.append("ï¿½ï¿½ï¿½ï¿½\t\tï¿½ï¿½ï¿½ï¿½\t\tï¿½ï¿½ï¿½ï¿½\n");
    
     Cursor cur=mydb.query(TABLE_NAME, new String[] {ID,NAME,AGE,HOME}, null, null, null, null, null);
     int count=cur.getCount();
@@ -170,7 +159,7 @@ public void onClick(View v) {
 		mydb.close();
 		for(String text:texts){
 			sms.sendTextMessage(mobile,null,text,null,null);
-			Toast.makeText(firstActivity.this, "¶ÌÐÅ·¢ËÍÍê³É", Toast.LENGTH_LONG).show();
+			Toast.makeText(firstActivity.this, "ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
 			break;
 			//smsManager.sendTextMessage(mobile, null, msg, sentIntent, null);
 		}

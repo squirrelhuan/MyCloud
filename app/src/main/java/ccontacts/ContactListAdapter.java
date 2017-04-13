@@ -1,54 +1,46 @@
 package ccontacts;  
 
-import java.io.InputStream;  
-import java.util.ArrayList;  
-import java.util.Collections;  
-import java.util.HashMap;  
-import java.util.List;  
-import java.util.Set;  
-import java.util.regex.Pattern;  
- 
-
+import android.content.ContentUris;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.Contacts;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.QuickContactBadge;
+import android.widget.TextView;
 
 import com.example.mycloud.R;
 
-import android.content.ContentUris;  
-import android.content.Context;  
-import android.graphics.Bitmap;  
-import android.graphics.BitmapFactory;  
-import android.net.Uri;  
-import android.provider.ContactsContract;  
-import android.provider.ContactsContract.Contacts;  
-import android.view.LayoutInflater;  
-import android.view.View;  
-import android.view.ViewGroup;  
-import android.widget.BaseAdapter;  
-import android.widget.QuickContactBadge;  
-import android.widget.TextView;  
-   
-   
-
-
-import ccontacts.ContactBean;  
-import ccontacts.QuickAlphabeticBar;  
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.regex.Pattern;
  
  public class ContactListAdapter extends BaseAdapter {  
     private LayoutInflater inflater;  
      private List<ContactBean> list;  
-     private HashMap<String, Integer> alphaIndexer; // ×ÖÄ¸Ë÷Òý  
-     private String[] sections; // ´æ´¢Ã¿¸öÕÂ½Ú  
-     private Context ctx; // ÉÏÏÂÎÄ  
+     private HashMap<String, Integer> alphaIndexer;
+     private String[] sections;
+     private Context ctx;
    
      public ContactListAdapter(Context context, List<ContactBean> list,  
             QuickAlphabeticBar alpha) {  
         this.ctx = context;  
          this.inflater = LayoutInflater.from(context);  
-         this.list = list;  
+         this.list = list;
          this.alphaIndexer = new HashMap<String, Integer>();  
          this.sections = new String[list.size()];  
    
         for (int i = 0; i < list.size(); i++) {  
-             // µÃµ½×ÖÄ¸  
+             // ï¿½Ãµï¿½ï¿½ï¿½Ä¸  
             String name = getAlpha(list.get(i).getSortKey());  
              if (!alphaIndexer.containsKey(name)) {  
                 alphaIndexer.put(name, i);  
@@ -57,7 +49,7 @@ import ccontacts.QuickAlphabeticBar;
    
          Set<String> sectionLetters = alphaIndexer.keySet();  
         ArrayList<String> sectionList = new ArrayList<String>(sectionLetters);  
-         Collections.sort(sectionList); // ¸ù¾ÝÊ××ÖÄ¸½øÐÐÅÅÐò  
+         Collections.sort(sectionList); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         sections = new String[sectionList.size()];  
          sectionList.toArray(sections);    
         alpha.setAlphaIndexer(alphaIndexer);  
@@ -117,9 +109,9 @@ import ccontacts.QuickAlphabeticBar;
             Bitmap contactPhoto = BitmapFactory.decodeStream(input);  
             holder.quickContactBadge.setImageBitmap(contactPhoto);  
          }  
-         // µ±Ç°×ÖÄ¸  
+         // ï¿½ï¿½Ç°ï¿½ï¿½Ä¸  
          String currentStr = getAlpha(contact.getSortKey());  
-        // Ç°ÃæµÄ×ÖÄ¸  
+        // Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸  
         String previewStr = (position - 1) >= 0 ? getAlpha(list.get(  
                 position - 1).getSortKey()) : " ";  
   
@@ -140,7 +132,7 @@ import ccontacts.QuickAlphabeticBar;
      }  
    
      /** 
-      * »ñÈ¡Ê××ÖÄ¸ 
+      * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä¸ 
       *  
      * @param str 
       * @return 
@@ -153,10 +145,10 @@ import ccontacts.QuickAlphabeticBar;
              return "#";  
          }  
          char c = str.trim().substring(0, 1).charAt(0);  
-         // ÕýÔò±í´ïÊ½Æ¥Åä  
+         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½Æ¥ï¿½ï¿½  
          Pattern pattern = Pattern.compile("^[A-Za-z]+$");  
          if (pattern.matcher(c + "").matches()) {  
-             return (c + "").toUpperCase(); // ½«Ð¡Ð´×ÖÄ¸×ª»»Îª´óÐ´  
+             return (c + "").toUpperCase(); // ï¿½ï¿½Ð¡Ð´ï¿½ï¿½Ä¸×ªï¿½ï¿½Îªï¿½ï¿½Ð´  
          } else {  
              return "#";  
          }  

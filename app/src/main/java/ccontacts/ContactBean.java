@@ -3,14 +3,14 @@ package ccontacts;
 public class ContactBean {  
  
    private int contactId; //id  
-    private String desplayName;//ĞÕÃû  
-    private String phoneNum; // µç»°ºÅÂë  
-   private String sortKey; // ÅÅĞòÓÃµÄ  
-    private Long photoId; // Í¼Æ¬id  
+    private String desplayName;//ï¿½ï¿½ï¿½ï¿½  
+    private String phoneNum; //
+   private String sortKey; //
+    private Long photoId; //
     private String lookUpKey;   
     private int selected = 0;  
     private String formattedNumber;  
-    private String pinyin; // ĞÕÃûÆ´Òô  
+    private String pinyin; //
  
    public int getContactId() {  
         return contactId;  

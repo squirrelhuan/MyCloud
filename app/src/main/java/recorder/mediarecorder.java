@@ -1,17 +1,16 @@
 package recorder;
 
-import java.io.IOException;
-
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.mycloud.R;
+
+import java.io.IOException;
 
 public class mediarecorder extends Activity{
 	
@@ -44,7 +43,7 @@ public class mediarecorder extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub 
 			    recorder.start();
-			    Toast.makeText(getApplicationContext(), "正在录音！", Toast.LENGTH_LONG).show();
+			    Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
 			}
 		});
 	    btn_stop.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +52,7 @@ public class mediarecorder extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				recorder.stop();
-				Toast.makeText(getApplicationContext(), "录音已结束！", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
 			}
 		});
 	}

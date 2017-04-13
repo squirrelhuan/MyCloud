@@ -16,7 +16,6 @@ public class LrcHandle {
 	    private List mWords = new ArrayList();
 	    private List mTimeList = new ArrayList();
 
-	    //´¦Àí¸è´ÊÎÄ¼þ
 	    public void readLRC(String path) {
 	        File file = new File(path);
 
@@ -44,10 +43,10 @@ public class LrcHandle {
 	            fileInputStream.close();
 	        } catch (FileNotFoundException e) {
 	            e.printStackTrace();
-	            mWords.add("Ã»ÓÐ¸è´ÊÎÄ¼þ£¬¸Ï½ôÈ¥ÏÂÔØ");
+	            mWords.add("Ã»ï¿½Ð¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ï½ï¿½È¥ï¿½ï¿½ï¿½ï¿½");
 	        } catch (IOException e) {
 	            e.printStackTrace();
-	            mWords.add("Ã»ÓÐ¶ÁÈ¡µ½¸è´Ê");
+	            mWords.add("Ã»ï¿½Ð¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½");
 	        }
 	    }
 	   public List getWords() {
@@ -58,16 +57,16 @@ public class LrcHandle {
 	        return mTimeList;
 	    }
 
-	    // ·ÖÀë³öÊ±¼ä
+	    // ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 	    private int timeHandler(String string) {
 	       string = string.replace(".", ":");
 	       String timeData[] = string.split(":");
-	// ·ÖÀë³ö·Ö¡¢Ãë²¢×ª»»ÎªÕûÐÍ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ë²¢×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
 	        int minute = Integer.parseInt(timeData[0]);
 	        int second = Integer.parseInt(timeData[1]);
 	        int millisecond = Integer.parseInt(timeData[2]);
 
-	        // ¼ÆËãÉÏÒ»ÐÐÓëÏÂÒ»ÐÐµÄÊ±¼ä×ª»»ÎªºÁÃëÊý
+	        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ðµï¿½Ê±ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	        int currentTime = (minute * 60 + second) * 1000 + millisecond * 10;
 
 	        return currentTime;

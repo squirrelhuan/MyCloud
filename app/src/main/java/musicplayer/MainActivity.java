@@ -80,8 +80,8 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 	private int bmWidth,offSet,currentItem,currentMusic; // The music that is playing.
 	private int currentPosition,currentpoint; //The position of the music is playing.
 	private int currentMax;
-	private boolean scrollFlag = false;// ±ê¼ÇÊÇ·ñ»¬¶¯
-	private int lastVisibleItemPosition;// ±ê¼ÇÉÏ´Î»¬¶¯Î»ÖÃ
+	private boolean scrollFlag = false;
+	private int lastVisibleItemPosition;
 	private File tempFile;
 	private static PreferencesService service;
 	private RelativeLayout rel_01;
@@ -178,14 +178,10 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 	     int currentTIME=point;		
 		service.savecurrentmusic(currentID,currentTIME);
 	}	
-	private void initComponents(){	
-		//ÊµÀý»¯Ò»¸öLayoutInflater¶ÔÏó
+	private void initComponents(){
 		   LayoutInflater inflater = getLayoutInflater();
-		   //Í¨¹ý²½Öè1ÖÐÉùÃ÷µÄ×é¼þIDÀ´»ñÈ¡ViewPager
 		    viewPager = (ViewPager) findViewById(R.id.viewPager);
-		   //ÐÂ½¨Ò»¸öviewlist¶ÔÏóÀ´±£´æ¸÷¸ö·ÖÒ³µÄÄÚÈÝ
 		   ArrayList<View> viewList = new ArrayList<View>();
-		   //Í¨¹ýLayoutInflaterÀ´ÊµÀý»¯¸÷¸ö·ÖÒ³
 		   View view0 = inflater.inflate(R.layout.music_0, null);
 		   View view1 = inflater.inflate(R.layout.music_1, null);
 		   View view2 = inflater.inflate(R.layout.music_2, null);
@@ -228,8 +224,8 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 					}
 				});
 
-			// Í¼±êÒ³
-				GridView gridview1 = (GridView) view0.findViewById(R.id.gridview1);// Éú³É¶¯Ì¬Êý×é£¬²¢ÇÒ×ªÈëÊý¾Ý
+			// Í¼ï¿½ï¿½Ò³
+				GridView gridview1 = (GridView) view0.findViewById(R.id.gridview1);// ï¿½ï¿½ï¿½É¶ï¿½Ì¬ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				ArrayList<HashMap<String, Object>> ItemList = new ArrayList<HashMap<String, Object>>();
 
 				HashMap<String, Object> map_0 = new HashMap<String, Object>();
@@ -239,35 +235,35 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 
 				HashMap<String, Object> map_1 = new HashMap<String, Object>();
 				map_1.put("Image", R.drawable.baidu);
-				map_1.put("Tag", "°Ù¶È");
+				map_1.put("Tag", "ï¿½Ù¶ï¿½");
 				ItemList.add(map_1);
 				HashMap<String, Object> map_2 = new HashMap<String, Object>();
 				map_2.put("Image", R.drawable.qq);
-				map_2.put("Tag", "ÌÚÑ¶");
+				map_2.put("Tag", "ï¿½ï¿½Ñ¶");
 				ItemList.add(map_2);
 				HashMap<String, Object> map_3 = new HashMap<String, Object>();
 				map_3.put("Image", R.drawable.taobao);
-				map_3.put("Tag", "ÌÔ±¦");
+				map_3.put("Tag", "ï¿½Ô±ï¿½");
 				ItemList.add(map_3);
 				HashMap<String, Object> map_4 = new HashMap<String, Object>();
 				map_4.put("Image", R.drawable.yahoo);
-				map_4.put("Tag", "ÑÅ»¢");
+				map_4.put("Tag", "ï¿½Å»ï¿½");
 				ItemList.add(map_4);
 				HashMap<String, Object> map_5 = new HashMap<String, Object>();
 				map_5.put("Image", R.drawable.wandoujia);
-				map_5.put("Tag", "Íã¶¹¼Ô");
+				map_5.put("Tag", "ï¿½ã¶¹ï¿½ï¿½");
 				ItemList.add(map_5);
 				HashMap<String, Object> map_6 = new HashMap<String, Object>();
 				map_6.put("Image", R.drawable.renren);
-				map_6.put("Tag", "ÈËÈË");
+				map_6.put("Tag", "ï¿½ï¿½ï¿½ï¿½");
 				ItemList.add(map_6);
 				HashMap<String, Object> map_7 = new HashMap<String, Object>();
 				map_7.put("Image", R.drawable.sohu);
-				map_7.put("Tag", "ËÑºü");
+				map_7.put("Tag", "ï¿½Ñºï¿½");
 				ItemList.add(map_7);
 				HashMap<String, Object> map_8 = new HashMap<String, Object>();
 				map_8.put("Image", R.drawable.sina);
-				map_8.put("Tag", "ÐÂÀË");
+				map_8.put("Tag", "ï¿½ï¿½ï¿½ï¿½");
 				ItemList.add(map_8);
 				HashMap<String, Object> map_9 = new HashMap<String, Object>();
 				map_9.put("Image", R.drawable.qzone);
@@ -275,11 +271,11 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 				ItemList.add(map_9);
 				HashMap<String, Object> map_10 = new HashMap<String, Object>();
 				map_10.put("Image", R.drawable.wode);
-				map_10.put("Tag", "ÎÒµÄ");
+				map_10.put("Tag", "ï¿½Òµï¿½");
 				ItemList.add(map_10);
 				HashMap<String, Object> map_11 = new HashMap<String, Object>();
 				map_11.put("Image", R.drawable.rss);
-				map_11.put("Tag", "±¾µØ");
+				map_11.put("Tag", "ï¿½ï¿½ï¿½ï¿½");
 				ItemList.add(map_11);
 
 				adapter = new SimpleAdapter(getApplicationContext(), ItemList,
@@ -312,7 +308,7 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 			}
 			
 		});
-		//Ìí¼Ó·ÖÒ³µ½listÖÐ
+		//ï¿½ï¿½Ó·ï¿½Ò³ï¿½ï¿½listï¿½ï¿½
 		  viewList.add(view0);
 		  viewList.add(view1);
 		  viewList.add(view2);
@@ -320,7 +316,7 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 		  
 		  viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {    
 		      @Override
-		      public void onPageSelected(int arg0) {                                 //µ±»¬¶¯Ê½£¬¶¥²¿µÄimageViewÊÇÍ¨¹ýanimation»ºÂýµÄ»¬¶¯
+		      public void onPageSelected(int arg0) {                                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageViewï¿½ï¿½Í¨ï¿½ï¿½animationï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 		          // TODO Auto-generated method stub
 		          switch (arg0)
 		          {
@@ -376,11 +372,11 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 		      @Override
 		      public void onPageScrolled(int arg0, float arg1, int arg2) {
 		          // TODO Auto-generated method stub   
-//		    	  arg0 :µ±Ç°Ò³Ãæ£¬¼°Äãµã»÷»¬¶¯µÄÒ³Ãæ
+//		    	  arg0 :ï¿½ï¿½Ç°Ò³ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 //
-//		    	  arg1:µ±Ç°Ò³ÃæÆ«ÒÆµÄ°Ù·Ö±È
+//		    	  arg1:ï¿½ï¿½Ç°Ò³ï¿½ï¿½Æ«ï¿½ÆµÄ°Ù·Ö±ï¿½
 //
-//		    	  arg2:µ±Ç°Ò³ÃæÆ«ÒÆµÄÏñËØÎ»ÖÃ 
+//		    	  arg2:ï¿½ï¿½Ç°Ò³ï¿½ï¿½Æ«ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
 		    	 
 		      }      
 		      @Override
@@ -399,7 +395,7 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 	    }
 
 	    @Override
-	    public int getCount() {                                                                 //»ñµÃsize
+	    public int getCount() {                                                                 //ï¿½ï¿½ï¿½size
 	        // TODO Auto-generated method stub
 	        return viewLists.size();
 	    }
@@ -411,13 +407,13 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 	    }
 	    
 	    @Override
-	    public void destroyItem(View view, int position, Object object)                       //Ïú»ÙItem
+	    public void destroyItem(View view, int position, Object object)                       //ï¿½ï¿½ï¿½ï¿½Item
 	    {
 	        ((ViewPager) view).removeView(viewLists.get(position));
 	    }
 	    
 	    @Override
-	    public Object instantiateItem(View view, int position)                                //ÊµÀý»¯Item
+	    public Object instantiateItem(View view, int position)                                //Êµï¿½ï¿½ï¿½ï¿½Item
 	    {
 	        ((ViewPager) view).addView(viewLists.get(position), 0);
 	        return viewLists.get(position);
@@ -642,13 +638,13 @@ public class MainActivity extends Activity implements OnClickListener, OnScrollL
 				if (rel_01.getVisibility() == View.VISIBLE) {
 				rel_01.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.bottom_down));
 				rel_01.setVisibility(View.GONE);}
-			Log.d("dc", "ÉÏ»¬");
+			Log.d("dc", "ï¿½Ï»ï¿½");
 			}
 			if (firstVisibleItem < lastVisibleItemPosition) {
 				if (rel_01.getVisibility() == View.GONE) {
 				rel_01.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.bottom_up));
 				rel_01.setVisibility(View.VISIBLE);}
-			Log.d("dc", "ÏÂ»¬");
+			Log.d("dc", "ï¿½Â»ï¿½");
 			}
 			if (firstVisibleItem == lastVisibleItemPosition) {
 			return;

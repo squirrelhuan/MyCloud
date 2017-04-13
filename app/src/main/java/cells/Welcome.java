@@ -1,31 +1,28 @@
 package cells;
 
 
-import webview.Main_Browser;
-
-import com.example.mycloud.AllAppList;
-import com.example.mycloud.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.mycloud.AllAppList;
+import com.example.mycloud.R;
+
 
 
 public class Welcome extends Activity implements OnGestureListener {
-	private final int SPLASH_DISPLAY_LENGHT = 3000; // 延迟3秒  
+	private final int SPLASH_DISPLAY_LENGHT = 3000; //
 	private GestureDetector detector;
 	private ViewFlipper flipper;
 	private Button button;
@@ -87,7 +84,7 @@ public class Welcome extends Activity implements OnGestureListener {
     			Welcome.this.startActivity(mainIntent);  
                 Welcome.this.finish(); 
 
-				Toast.makeText(Welcome.this, "欢迎来到云世界！", 2000).show();
+				Toast.makeText(Welcome.this, "", Toast.LENGTH_SHORT).show();
 			}
 		});
 		return view;

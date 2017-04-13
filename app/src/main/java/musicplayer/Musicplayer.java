@@ -1,16 +1,5 @@
 package musicplayer;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-
-import com.example.mycloud.R;
-import musicplayer.CMusicService;
-import musicplayer.FormatHelper;
-import musicplayer.CMusicService.NatureBinder;
-import musicplayer.MusicLoader;
-import musicplayer.MusicLoader.MusicInfo;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -27,22 +16,31 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import com.example.mycloud.R;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import musicplayer.CMusicService.NatureBinder;
+import musicplayer.MusicLoader.MusicInfo;
 
 public class Musicplayer extends Activity implements OnClickListener{
 	
@@ -66,23 +64,15 @@ private List<MusicInfo> musicList;
 private Button btnStartStop,btnNext, btnDetail;
 private ProgressReceiver progressReceiver;
 
-//ÉùÃ÷ÒôÀÖµÄ×´Ì¬³£Á¿
-private final int MEDIAPLAYER_PAUSE = 0;//ÔÝÍ£
-private final int MEDIAPLAYER_PLAY = 1;//²¥·ÅÖÐ
-private final int MEDIAPLAYER_STOP = 2;//Í£Ö¹
-//ÒôÀÖµÄµ±Ç°µÄ×´Ì¬
+private final int MEDIAPLAYER_PAUSE = 0;
+private final int MEDIAPLAYER_PLAY = 1;
+private final int MEDIAPLAYER_STOP = 2;
 private int mediaSate = 0;
-//ÉùÃ÷Ò»¸öÒôÀÖ²¥·ÅÆ÷
 private MediaPlayer mediaPlayer;
-//µ±Ç°ÒôÀÖ²¥·ÅµÄÊ±¼äµã
 private int currentTime;
-//µ±Ç°ÒôÀÖµÄ×ÜÊ±¼ä
 private int musicMaxTime;
-//µ±Ç°ÒôÀÖµÄÒôÁ¿´óÐ¡
 private int currentVolume,maxVolume;
-//¿ì½ø¡¢¿ìÍËÊ±¼ä´Á
 private int setTime = 5000;
-//²¥·ÅÆ÷¹ÜÀíÀà
 private AudioManager audiomanage;
 
 private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -109,12 +99,11 @@ protected void onCreate(Bundle savedInstanceState) {
 	
 	Intent intent=getIntent();
     path=intent.getDataString(); 
-    
- // ´´½¨MediaPlayerÊµÀý
+
     mediaPlayer = new MediaPlayer();
-    audiomanage = (AudioManager)getSystemService(Context.AUDIO_SERVICE);      
-	maxVolume = audiomanage.getStreamMaxVolume(AudioManager.STREAM_MUSIC);  //»ñÈ¡ÏµÍ³×î´óÒôÁ¿  
-	currentVolume = audiomanage.getStreamVolume(AudioManager.STREAM_MUSIC);  //»ñÈ¡µ±Ç°Öµ
+    audiomanage = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+	maxVolume = audiomanage.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+	currentVolume = audiomanage.getStreamVolume(AudioManager.STREAM_MUSIC);
   
     MusicLoader musicLoader = MusicLoader.instance(getContentResolver());		
 	musicList = musicLoader.getMusicList();
@@ -151,13 +140,9 @@ public void onDestroy(){
 	}
 }
 private void initComponents(){
-	//ÊµÀý»¯Ò»¸öLayoutInflater¶ÔÏó
 	   LayoutInflater inflater = getLayoutInflater();
-	   //Í¨¹ý²½Öè1ÖÐÉùÃ÷µÄ×é¼þIDÀ´»ñÈ¡ViewPager
 	   final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-	   //ÐÂ½¨Ò»¸öviewlist¶ÔÏóÀ´±£´æ¸÷¸ö·ÖÒ³µÄÄÚÈÝ
 	   ArrayList<View> viewList = new ArrayList<View>();
-	   //Í¨¹ýLayoutInflaterÀ´ÊµÀý»¯¸÷¸ö·ÖÒ³
 	   View view0 = inflater.inflate(R.layout.music_1, null);
 	   View view1 = inflater.inflate(R.layout.music_1, null);
 	   View view2 = inflater.inflate(R.layout.music_lrc, null);
@@ -217,15 +202,15 @@ private void initComponents(){
 			}
 		}
 	});	
-  //¸è´ÊÏÔÊ¾	
+  //ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾	
 	/*
   mWordView = (WordView) view1.findViewById(R.id.text);
   mMediaPlayer.reset();
   LrcHandle lrcHandler = new LrcHandle();
   try {
-  lrcHandler.readLRC("/sdcard/ÅãÎÒÈ¥Á÷ÀË.lrc");
+  lrcHandler.readLRC("/sdcard/ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½.lrc");
   mTimeList = lrcHandler.getTime();
-  mMediaPlayer.setDataSource("/sdcard/ÅãÎÒÈ¥Á÷ÀË.mp3");
+  mMediaPlayer.setDataSource("/sdcard/ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½.mp3");
   mMediaPlayer.prepare();
   } catch (IOException e) {
   e.printStackTrace();
@@ -266,14 +251,14 @@ private void initComponents(){
   }).start();
 */
   
-//Ìí¼Ó·ÖÒ³µ½listÖÐ
+//ï¿½ï¿½Ó·ï¿½Ò³ï¿½ï¿½listï¿½ï¿½
   viewList.add(view0);
   viewList.add(view1);
   viewList.add(view2);
   viewPager.setAdapter(new MyAdapter(viewList));	
   viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {    
       @Override
-      public void onPageSelected(int arg0) {                                 //µ±»¬¶¯Ê½£¬¶¥²¿µÄimageViewÊÇÍ¨¹ýanimation»ºÂýµÄ»¬¶¯
+      public void onPageSelected(int arg0) {                                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageViewï¿½ï¿½Í¨ï¿½ï¿½animationï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
           // TODO Auto-generated method stub
           switch (arg0)
           {
@@ -333,7 +318,7 @@ private void initComponents(){
 
    mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {			
 			public void onCompletion(MediaPlayer mp) {
-				Toast.makeText(Musicplayer.this, "½áÊø", 1000).show();
+				Toast.makeText(Musicplayer.this, "ï¿½ï¿½ï¿½ï¿½", 1000).show();
 				startImgBtn.setVisibility(View.VISIBLE);
 				stopImgBtn.setVisibility(View.GONE);
 				mMediaPlayer.reset();
@@ -347,7 +332,7 @@ private void initComponents(){
    	musiccurrentTime.setText(FormatHelper.formatDuration(currentTime));
    		}
        }
-   };*///ÊµÏÖÏûÏ¢´«µÝ
+   };*///Êµï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 }
 	private void registerReceiver(){
 		progressReceiver = new ProgressReceiver();	
@@ -412,14 +397,14 @@ public void startProgressUpdate() {
 		{//if(i/2==0){mMediaPlayer.reset();i++;}
 			animation(0);
 			
-			// ÉèÖÃ²¥·ÅÊÓÆµÔ´
+			// ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ÆµÔ´
 			mediaPlayer.setDataSource(path);
-			// ÉèÖÃÒô¹ìÁ÷µÄÀàÐÍ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-			// ×¼±¸²¥·Å
+			// ×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			mediaPlayer.prepare();
 			musicSeekBar.setMax(mediaPlayer.getDuration());
-			//»ñÈ¡ÒôÀÖÎÄ¼þµÄ×ÜÊ±¼ä
+			//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 		 	  musicMaxTime = mediaPlayer.getDuration();  	  	  
      musicMaxTime_text.setText(FormatHelper.formatDuration(musicMaxTime));
      
@@ -428,9 +413,9 @@ public void startProgressUpdate() {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// ¿ªÊ¼²¥·Å
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 		mediaPlayer.start();
-		// ¿ªÊ¼¸üÐÂ½ø¶ÈÌõ
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½
         startProgressUpdate();
  }
 
@@ -530,16 +515,16 @@ class SeekBarChangeEvent implements OnSeekBarChangeListener{
     }
     @Override
     public void onStartTrackingTouch(SeekBar arg0) {
-//¿ªÊ¼ÍÏ¶¯½ø¶ÈÌõ
+//ï¿½ï¿½Ê¼ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // TODO Auto-generated method stub
          //isChanging=true; 
     }
     @Override
     public void onStopTrackingTouch(SeekBar arg0) {
-//Í£Ö¹ÍÏ¶¯½ø¶ÈÌõ
+//Í£Ö¹ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // TODO Auto-generated method stub
     	mediaPlayer.seekTo(arg0.getProgress());
-//½«media½ø¶ÈÉèÖÃÎªµ±Ç°seekbarµÄ½ø¶È
+//ï¿½ï¿½mediaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ç°seekbarï¿½Ä½ï¿½ï¿½ï¿½
        // isChanging=false; 
     }
 }
@@ -552,7 +537,7 @@ class DelayThread extends Thread{
         while(true){
             try {
                 sleep(milliseconds);
-           //ÉèÖÃÒôÀÖ½ø¶È¶ÁÈ¡ÆµÂÊ
+           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½È¶ï¿½È¡Æµï¿½ï¿½
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -571,7 +556,7 @@ public class MyAdapter extends PagerAdapter{
     }
 
     @Override
-    public int getCount() {                                                                 //»ñµÃsize
+    public int getCount() {                                                                 //ï¿½ï¿½ï¿½size
         // TODO Auto-generated method stub
         return viewLists.size();
     }
@@ -583,13 +568,13 @@ public class MyAdapter extends PagerAdapter{
     }
     
     @Override
-    public void destroyItem(View view, int position, Object object)                       //Ïú»ÙItem
+    public void destroyItem(View view, int position, Object object)                       //ï¿½ï¿½ï¿½ï¿½Item
     {
         ((ViewPager) view).removeView(viewLists.get(position));
     }
     
     @Override
-    public Object instantiateItem(View view, int position)                                //ÊµÀý»¯Item
+    public Object instantiateItem(View view, int position)                                //Êµï¿½ï¿½ï¿½ï¿½Item
     {
         ((ViewPager) view).addView(viewLists.get(position), 0);
         return viewLists.get(position);
